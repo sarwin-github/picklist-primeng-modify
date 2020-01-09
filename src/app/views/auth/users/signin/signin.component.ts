@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class SigninComponent implements OnInit {
 	private req : Subscription;
 	private postReq : Subscription;
-	private userLoginForm : FormGroup;
+	public userLoginForm : FormGroup;
 
 	user_email : string;
 	user_password : string;
