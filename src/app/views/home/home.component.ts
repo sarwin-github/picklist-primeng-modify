@@ -27,7 +27,17 @@ export class HomeComponent implements OnInit {
         this.target_1 = [];
 
         this.nonRequestedField_2 = ["Online", "Change Password"];
-        this.mandatory_2 = ["First name", "Last name", "Login"];
+        this.mandatory_2 = [
+            {
+                "title": "First name"
+            },
+            {
+                "title": `Last name`
+            },
+            {
+                "title": `Login`
+            },
+        ];
         this.recommended_2 = [
     		{
     			"title": "E-mail"
