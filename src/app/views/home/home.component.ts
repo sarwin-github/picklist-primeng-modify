@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { mainAnimations } from '../../shared/animations/main-animations';
-import { UsersService } from '../../shared/services/auth/users.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,37 +11,42 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 	private req: Subscription;
-	private countryReq: Subscription;
-	public countries = [];
-	userData: any = sessionStorage.getItem('token');
-	states: any;
 
-	constructor(private router:Router, 
-		private activatedRoute: ActivatedRoute,
-		private usersService: UsersService) { }
+	public source_1: any[];
+    public target_1: any[];
+   
+   	public mandatory_2: any[];
+   	public recommended_2: any[];
+   	public nonRequestedField_2: any[];
 
-	ngOnInit() {
-		this.getCountry();
-	}
 
-	// get all coutries
-	getCountry(){
-	  this.countryReq = this.usersService.getCountries()
-	  .subscribe((result) => {
-	    this.countries = result;
-	  });
-	}
+	constructor() { }
 
-	selectCountry(event){
-		let countryDetails = this.countries.filter(el => el.name === event.target.value);
-		let states = countryDetails[0].states;
+    ngOnInit() {
+        this.source_1 = ["First name", "Last name", "Grade", "Sub-group"];
+        this.target_1 = [];
 
-		this. states = states;
-	}
+        this.nonRequestedField_2 = ["Online", "Change Password"];
+        this.mandatory_2 = ["First name", "Last name", "Login"];
+        this.recommended_2 = [
+    		{
+    			"title": "E-mail"
+    		},
+    		{
+    			"title": `Member's Activity`,
+    			"description": "Councours castor 2018"
+    		},
+    		{
+    			"title": `Skills`,
+    			"description": `Elaboration d'un graphe lorem ipsum`
+    		},
+    		{
+    			"title": `Participation code`
+    		}
+    	];
+    }
 
 	ngOnDestroy(){
-    	if(this.req) this.req.unsubscribe();
-    	if(this.countryReq) this.countryReq.unsubscribe();
 	}
 
 }

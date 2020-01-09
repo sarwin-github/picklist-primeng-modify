@@ -5,12 +5,14 @@ import { HomeRoutes } from './home.routing';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PickListModule } from 'primeng/picklist';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    PickListModule,
     RouterModule.forChild(HomeRoutes)
   ],
   declarations: [
