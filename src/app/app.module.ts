@@ -1,23 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RequestOptions } from '@angular/http';
+
+import { PickListModule } from 'primeng/picklist';
+
+import { MultiPickListModule } from '../components/MultiPickList';
+
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './shared/shared.module';
-import { UserGuard } from './shared/guard/auth/user.guard';
-import { CustomRequestOptions } from './shared/services/set-auth-header';
-import { RouterModule } from '@angular/router';
-import { rootRouterConfig } from './app.routing';
 
 @NgModule({
-    declarations: [
-      AppComponent
-    ],
-    imports: [
-        SharedModule,
-        RouterModule.forRoot(rootRouterConfig, { useHash: false })
-    ],
-    providers: [UserGuard, { provide: RequestOptions, useClass: CustomRequestOptions }],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    PickListModule,
+    MultiPickListModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

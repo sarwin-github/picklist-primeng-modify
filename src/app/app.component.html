@@ -1,1 +1,56 @@
-<router-outlet></router-outlet>
+<p-pickList
+    dragdrop="true"
+    [source]="source"
+    [target]="target"
+    sourceHeader="Select columns to import"
+    targetHeader="Imported columns"
+>
+    <ng-template
+        let-field
+        pTemplate="item"
+    >
+        <div
+            class="field ui-helper-clearfix"
+            [ngClass]="field.type"
+        >
+            <div style="padding: 6px; color: #eee; font-size: 14px;">{{ field.name }}</div>
+        </div>
+    </ng-template>
+</p-pickList>
+
+<p></p>
+<p></p>
+
+<p-multiPickList
+    [lists]="lists"
+    [sourceStyle]="{ 'min-width.px': 220 }"
+    [targetStyle]="{ 'min-width.px': 220, 'margin-right.px': 10 }"
+>
+    <ng-template
+        let-field
+        pTemplate="item"
+    >
+        <div
+            class="field ui-helper-clearfix"
+            [ngClass]="field.type"
+        >
+            <i
+                *ngIf="field.remark"
+                class="pi pi-search"
+                style="float: right; padding: .25em; color: #eee;"
+            ></i>
+            <div style="display: flex; padding: 6px; color: #eee; font-size: 14px;">
+                <i class="pi pi-ellipsis-v"></i>
+                <span>
+                    {{ field.name }}
+                    <div
+                        *ngIf="field.remark"
+                        style="padding-top: .25em; font-size: smaller; font-style: italic;"
+                    >
+                        {{ field.remark }}
+                    </div>
+                </span>
+            </div>
+        </div>
+    </ng-template>
+</p-multiPickList>
