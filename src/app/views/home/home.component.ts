@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
                 "title": `Login`
             }
         ];
+        
         this.recommended_2 = [
     		{
     			"title": "E-mail"
