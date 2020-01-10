@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { HeaderComponent } from './components/header/header.component'
 import { HttpClientModule } from '@angular/common/http';
+import { MultiPickListComponent } from './components/multi-picklist/multi-picklist.component';
 
 const classesToInclude = [
   HeaderComponent

@@ -9,7 +9,7 @@ export const rootRouterConfig: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './views/home.module#HomeModule'
+        loadChildren: './views/home/home.module#HomeModule'
       }
     ]
   },

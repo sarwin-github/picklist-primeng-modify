@@ -35,40 +35,6 @@
 			<h4 class="text-muted m-0 mb-5">Testable Picklist 2</h4>
 
 			<div class="row p-0 m-0">
-				<!--
-				<div class="col-12 p-0 mb-4">
-					<p-pickList 
-						[styleClass]="'picklist-custom-bottom-left p-0 m-0'"
-						[responsive]="true"
-						[dragdrop]="true"
-						
-						[source]="nonRequestedField_2"
-						[sourceHeader]="'Non Requested Fields'"
-						[showSourceControls]="false"
-						[showSourceFilter]="false"
-
-						[target]="mandatory_2"
-						[targetHeader]="'Mandatory fields'"
-						[showTargetFilter]="false"
-						[showTargetControls]="false"
-						[metaKeySelection]="false">
-
-					    <ng-template let-item pTemplate="item">
-					        <div class="text-left">
-					        	<div *ngIf="item?.description">
-					        		<span class="fa fa-ellipsis-v mr-3"></span>{{item.title || item}}
-					        		<span class="fa fa-search float-right"></span><br>
-					        		<i class="ml-3 pl-1">{{item.description}}</i>
-					        	</div>
-					        	
-					        	<div *ngIf="!item?.description">
-					        		<span class="fa fa-ellipsis-v mr-3"></span>{{item.title || item}}<br>
-					        	</div>
-					        </div>
-					    </ng-template>
-					</p-pickList>
-				</div>-->
-
 				<div class="col-12 p-0 m-0">
 					<p-pickList 
 						[styleClass]="'picklist-custom-bottom-right p-0 m-0'"

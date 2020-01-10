@@ -23,10 +23,19 @@ export class HomeComponent implements OnInit {
 	constructor() { }
 
     ngOnInit() {
-        this.source_1 = ["First name", "Last name", "Grade", "Sub-group"];
-        this.target_1 = [];
+        // first list
+        this.source_1 = ["Last name", "Grade", "Sub-group"];
+        this.target_1 = ["First name"];
 
-        this.nonRequestedField_2 = ["Online", "Change Password"];
+        // second picklist
+        this.nonRequestedField_2 = [{
+                "title": "Online"
+            },
+            {
+                "title": `Change Password`
+            }
+        ];
+
         this.mandatory_2 = [
             {
                 "title": "First name"
@@ -36,7 +45,7 @@ export class HomeComponent implements OnInit {
             },
             {
                 "title": `Login`
-            },
+            }
         ];
         this.recommended_2 = [
     		{
