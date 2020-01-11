@@ -5,10 +5,10 @@ import { MaterialsRoutes } from './materials.routing';
 import { MaterialsComponent } from './materials.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TableSlantedSortComponent } from './table-materials/table-slanted-sort/table-slanted-sort.component';
-
 
 import { MatTableModule } from '@angular/material/table';
+import { TableSlantedColgroupComponent } from './table-materials/table-slanted-colgroup/table-slanted-colgroup.component';
+import { TableSlantedSortComponent } from './table-materials/table-slanted-sort/table-slanted-sort.component';
 
 @NgModule({
   imports: [
@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
   declarations: [
     MaterialsComponent,
   	TableSlantedSortComponent,
+  	TableSlantedColgroupComponent,
   ]
 })
 export class MaterialsModule { }

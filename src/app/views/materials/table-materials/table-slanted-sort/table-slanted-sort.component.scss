@@ -56,10 +56,11 @@ thead, tbody tr {
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
     border-top: 1px solid #dddddd;
+}
 
-    th:nth-child(even) {
-    	background-color: #f2f2f2;
-    }
+.table-header-rotated th.rotate-45 > div:nth-child(even){
+	background-color: #f2f2f2 !important;
+	color: red !important;
 }
 
 .table-header-rotated th.rotate-45 span {
@@ -85,14 +86,14 @@ thead, tbody tr {
 
 .fa-stack .fa-caret-down {
   position: absolute;
-  bottom: 1px;
+  bottom: 0;
   cursor: pointer;
   font-size: 18px;
 }
 
 .fa-stack .fa-caret-up {
   position: absolute;
-  top: 1px;
+  top: 0;
   cursor: pointer;
   font-size: 18px;
 }

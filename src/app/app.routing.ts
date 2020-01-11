@@ -18,7 +18,7 @@ export const rootRouterConfig: Routes = [
     component: HeaderComponent,
     children: [
       {
-        path: 'materials',
+        path: 'custom',
         loadChildren: './views/materials/materials.module#MaterialsModule'
       }
     ]

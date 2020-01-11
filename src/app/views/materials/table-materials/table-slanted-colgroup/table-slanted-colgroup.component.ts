@@ -6,12 +6,12 @@ import { SortEvent } from 'primeng/api';
 import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
-  selector: 'custom-table-slanted-sort',
+  selector: 'custom-table-slanted-colgroup',
   animations: [mainAnimations],
-  templateUrl: './table-slanted-sort.component.html',
-  styleUrls: ['./table-slanted-sort.component.scss']
+  templateUrl: './table-slanted-colgroup.component.html',
+  styleUrls: ['./table-slanted-colgroup.component.scss']
 })
-export class TableSlantedSortComponent implements OnInit {
+export class TableSlantedColgroupComponent implements OnInit {
 
 	public cars: Car[];
     public cols: any[];
@@ -20,10 +20,6 @@ export class TableSlantedSortComponent implements OnInit {
     public scrollable: boolean;
 
     public displayedColumns: any = [
-    	{
-	    	name: "vin",
-	    	display: "Vin"
-    	},
     	{
 	    	name: "year",
 	    	display: "Year"
@@ -75,7 +71,6 @@ export class TableSlantedSortComponent implements OnInit {
     	};
     	this.cars = sorted;
     }
-
 
 
 }
