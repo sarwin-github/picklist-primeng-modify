@@ -1,11 +1,51 @@
 
 
-<div class="py-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
+<div class="pt-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
 		<div class="col-12 py-5 px-3 text-center">
 			<h4 class="text-muted m-0 mb-5">Testable Table Slanted Default</h4>
 
-			<p-table class="p-table-rotate" [value]="cars" 
+			<p-table 
+				[value]="cars" >
+			    <ng-template pTemplate="header">
+			        <tr>
+			            <th *ngFor="let col of cols" 
+			            class="rotated-header" 
+			            pResizableColumn
+			            [pSortableColumn]="col.field"
+			            (click)="removeHighlight()">
+			            	<div class="rotated-header-decoration"></div>
+			                <div class="rotated-header-text"> 
+			                    <p-sortIcon [field]="col.field"></p-sortIcon>
+			                    {{col.header}}
+			                </div>
+			                
+			            </th>
+			        </tr>
+			    </ng-template>
+			    <ng-template pTemplate="body" let-car>
+			        <tr>
+			            <td *ngFor="let col of cols"  class="ui-resizable-column">
+			                    {{car[col.field]}}
+			            </td>
+			        </tr>
+			    </ng-template>
+			</p-table>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+<div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
+	<div class="row">
+		<div class="col-12 py-5 px-3 text-center">
+			<h4 class="text-muted m-0 mb-5">Testable Table Slanted With Resize</h4>
+
+			<p-table 
+				[value]="cars" 
 				[resizableColumns]="true">
 			    <ng-template pTemplate="header">
 			        <tr>

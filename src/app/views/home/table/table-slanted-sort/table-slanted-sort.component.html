@@ -6,53 +6,65 @@
 			<h4 class="text-muted m-0 mb-5">Testable Table Column Group</h4>
 
 			<p-table [scrollable]="true" 
-				scrollHeight="200px" 
+				scrollHeight="500px" 
 				[virtualScroll]="true" 
 				(onLazyLoad)="loadDataOnScroll($event)"
 	    		[lazy]="true" [totalRecords]="totalRecords"
-
 				[columns]="cols" 
 				[value]="cars">
 			        <ng-template pTemplate="header" let-columns>
 			            <tr>
-	                        <th rowspan="2" [pSortableColumn]="vin">
-	                        	<div class="outerDiv"> 
-    			                    <div class="innerDiv">
-    			                    	<p-sortIcon [field]="vin"></p-sortIcon>
-    			                    	Vin
-    			                    </div>
-    			                </div>
+	                        <th rowspan="2" 
+	                        	[pSortableColumn]="'vin'"
+	                        	(click)="removeHighlight()"
+	                        	class="rotated-header" >
+			                	<div class="rotated-header-decoration"></div>
+			                    <div class="rotated-header-text"> 
+			                        <p-sortIcon [field]="'vin'"></p-sortIcon>
+			                        Vin
+			                    </div>
 	                        </th>
-	                        <th colspan="3">Sales</th>
+	                        <th colspan="3" class="table-header-col-group">
+
+			                    <div>
+			                    	<span> 
+			                    	    
+			                    	    Sales
+			                    	</span>
+			                    </div>
+	                        </th>
 	                    </tr>
 	                    <tr>
-	                        <th [pSortableColumn]="year">
-			                    <div class="outerDiv"> 
-    			                    <div class="innerDiv">
-    			                    	<p-sortIcon [field]="year"></p-sortIcon>
-    			                    	Year
-    			                    </div>
-    			                </div>
+	                        <th [pSortableColumn]="'year'"
+	                        	(click)="removeHighlight()"
+	                        	class="rotated-header" >
+			                    <div class="rotated-header-decoration"></div>
+			                    <div class="rotated-header-text"> 
+			                        <p-sortIcon [field]="'year'"></p-sortIcon>
+			                        Year
+			                    </div>
 			                    
 			                </th>
 
-			                <th [pSortableColumn]="brand">
-			                    <div class="outerDiv"> 
-    			                    <div class="innerDiv">
-    			                    	<p-sortIcon [field]="brand"></p-sortIcon>
-    			                    	Brand
-    			                    </div>
-    			                </div>
+			                <th [pSortableColumn]="'brand'"
+			                	(click)="removeHighlight()"
+	                        	class="rotated-header" >
+			                    <div class="rotated-header-decoration"></div>
+			                    <div class="rotated-header-text"> 
+			                        <p-sortIcon [field]="'brand'"></p-sortIcon>
+			                        Brand
+			                    </div>
 			                    
 			                </th>
 
-			                <th [pSortableColumn]="color">
-			                    <div class="outerDiv"> 
-    			                    <div class="innerDiv">
-    			                    	<p-sortIcon [field]="color"></p-sortIcon>
-    			                    	Color
-    			                    </div>
-    			                </div>
+			                <th [pSortableColumn]="'color'"
+			                	(click)="removeHighlight()"
+	                        	class="rotated-header" >
+			                    <div class="rotated-header-decoration"></div>
+			                    <div class="rotated-header-text"> 
+			                        <p-sortIcon [field]="'color'"></p-sortIcon>
+			                        Color
+			                    </div>
 			                    
 			                </th>
 	                    </tr>

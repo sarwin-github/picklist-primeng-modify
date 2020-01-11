@@ -77,11 +77,6 @@ export class TableSlantedSortComponent implements OnInit {
     	this.cars = sorted;
     }
 
-    resizeColumn(e, column, i){
-
-        console.log('HEY HEY', column, this.displayedColumns[i].width)
-    }
-
 
     start: any = undefined;
     pressed: boolean = false;
@@ -106,6 +101,8 @@ export class TableSlantedSortComponent implements OnInit {
           column.width = width;
         }
       });
+
+
       this.resizableFnMouseup = this.renderer.listen('document', 'mouseup', (event) => {
         if (this.pressed) {
           this.pressed = false;
