@@ -13,6 +13,7 @@ import { LazyLoadEvent } from 'primeng/api';
 })
 export class TableSlantedSortComponent implements OnInit {
 	public cars: Car[];
+    public cars2: Car[];
     public cols: any[];
 
     public slanted: boolean;
@@ -36,7 +37,10 @@ export class TableSlantedSortComponent implements OnInit {
   	constructor(private carService: CarService) { }
 
     ngOnInit() {
-        this.carService.getCarsMedium().then(cars => this.cars = cars);
+        this.carService.getCarsSmall().then(cars => this.cars = cars);
+        this.carService.getCarsMedium().then(cars => {
+            this.cars2 = cars;
+        });
 
         this.cols = [
             { field: 'vin', header: 'Vin' },
