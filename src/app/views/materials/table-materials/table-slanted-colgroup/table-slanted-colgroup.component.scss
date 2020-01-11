@@ -17,10 +17,33 @@ thead, tbody tr {
 .table-header-col-group {
   position: relative;
   top: 0px;
-  border: 1px solid #dddddd;
-  border-left: none !important;
-  border-bottom: none !important;
-  right: -100px;
+  border: none;
+  outline: 1px solid #dddddd;
+  right: -125px;
+  z-index: 9;
+  /* Rotate div */
+  -ms-transform:skew(-45deg,0deg);
+  -moz-transform:skew(-45deg,0deg);
+  -webkit-transform:skew(-45deg,0deg);
+  -o-transform:skew(-45deg,0deg);
+  transform:skew(-45deg,0deg);
+
+  span{
+    -ms-transform:skew(45deg,0deg);
+    -moz-transform:skew(45deg,0deg);
+    -webkit-transform:skew(45deg,0deg);
+    -o-transform:skew(45deg,0deg);
+    transform:skew(45deg,0deg);
+  }
+}
+
+.table-header-col-group span {
+  -ms-transform:skew(45deg,0deg);
+  -moz-transform:skew(45deg,0deg);
+  -webkit-transform:skew(45deg,0deg);
+  -o-transform:skew(45deg,0deg);
+  transform:skew(45deg,0deg);
+  display: inline-block !important;
 }
 
 
@@ -28,7 +51,7 @@ thead, tbody tr {
   left: 75px !important;
   position: relative;
   width: auto;
-
+  z-index: 9999;
   /* Rotate div */
   -ms-transform:skew(-45deg,0deg);
   -moz-transform:skew(-45deg,0deg);
