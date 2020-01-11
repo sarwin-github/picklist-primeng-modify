@@ -60,7 +60,7 @@ export class PicklistList3Component implements OnInit {
 
 	    this.lists = [
 	      { header: 'Non-requested fields', list: this.list1 },
-	      { header: 'Recommanded fields', list: this.list2 },
+	      { header: 'Recommended fields', list: this.list2 },
 	      { header: 'Mandatory fields', list: this.list3 },
 	    ];
   	}

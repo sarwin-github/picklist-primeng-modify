@@ -4,12 +4,14 @@
 			<h4 class="text-muted m-0 mb-5">Testable Picklist 2</h4>
 
 			<div class="row p-0 m-0">
-				<!--
+				
 				<div class="col-12 p-0 m-0">
 					<p-multiPickList
+						[styleClass]="'picklist-custom-multiple'"
 					    [lists]="lists"
-					    [sourceStyle]="{ 'min-width.px': 220 }"
-					    [targetStyle]="{ 'min-width.px': 220, 'margin-right.px': 10 }"
+					    [responsive]="true"
+					    [sourceStyle]="{ 'min-width.px': 300 }"
+					    [targetStyle]="{ 'min-width.px': 300, 'margin-right.px': 10 }"
 					>
 					    <ng-template
 					        let-field
@@ -39,7 +41,7 @@
 					        </div>
 					    </ng-template>
 					</p-multiPickList>
-				</div>-->
+				</div>
 			</div>
 			
 		</div>

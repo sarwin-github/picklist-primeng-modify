@@ -7,6 +7,7 @@ tbody {
   height:450px;
   overflow:auto;
 }
+
 thead, tbody tr {
   display:table;
   width:100%;
@@ -57,17 +58,16 @@ thead, tbody tr {
 
 
 .table-header-rotated th.row-header{
-
- width: auto;
+  width: auto;
 }
 
 .table-header-rotated td{
- width: 40px;
- border-top: 1px solid #dddddd;
- border-left: 1px solid #dddddd;
- border-right: 1px solid #dddddd;
- vertical-align: middle;
- text-align: center;
+  width: 40px;
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .table-header-rotated th.rotate-45{

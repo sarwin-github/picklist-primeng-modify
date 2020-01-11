@@ -58,55 +58,50 @@
 	}
 }
 
-// picklist 2
-.picklist-custom-bottom-left{
-	// picklist source css
-	.ui-picklist-source{
-		@extend .ui-picklist-main;
-		border: 1px dashed #bdbdbd !important;
-
-		.ui-picklist-item{
-			@extend .ui-picklist-item-main;
-			background: gray !important;
-			color: #f5f5f5 !important;
-		}
-	}
+// picklist 1
+.picklist-custom-multiple{
 
 	// pick list target css
 	.ui-picklist-target{
-		@extend .ui-picklist-main;
-		border: 1px dashed #bdbdbd !important;
+		width: auto !important;
+		min-height: 270px !important;
+		padding: 10px !important;
+		margin: 5px !important;
+		border-radius: 5px !important;
+		border: 1px dashed #4285F4 !important;
 
-		.ui-picklist-item{
-			@extend .ui-picklist-item-main;
-			background: #c62828 !important;
+		li{
+			padding: 0 !important;
+			margin: 0 !important;
+			border-radius: 10px !important;
+		}
+		
+		.ui-picklist-item > .non-requested{
+			margin: 0 !important;
+			padding: 5px 10px !important;
+			border-radius: 10px;
+			background: #757575 !important;
 			color: #f5f5f5 !important;
 		}
-	}
-}
 
-.picklist-custom-bottom-right{
-	// picklist source css
-	.ui-picklist-source{
-		@extend .ui-picklist-main;
-		border: 1px dashed #bdbdbd !important;
-
-		.ui-picklist-item{
-			@extend .ui-picklist-item-main;
+		.ui-picklist-item > .recommend {
+			margin: 0 !important;
+			padding: 5px 10px !important;
+			border-radius: 10px;
 			background: #4285F4 !important;
 			color: #f5f5f5 !important;
 		}
-	}
 
-	// pick list target css
-	.ui-picklist-target{
-		@extend .ui-picklist-main;
-		border: 1px dashed #bdbdbd !important;
-
-		.ui-picklist-item{
-			@extend .ui-picklist-item-main;
+		.ui-picklist-item > .mandatory{
+			margin: 0 !important;
+			padding: 5px 10px !important;
+			border-radius: 10px;
 			background: #c62828 !important;
 			color: #f5f5f5 !important;
 		}
+		
 	}
+
+	
 }
+

@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PickListModule } from 'primeng/picklist';
 import { TableModule } from 'primeng/table';
 
+import { MultiPickListComponent } from '../../shared/components/multi-picklist/multi-picklist.component';
 import { TableSlantedHeaderComponent } from './table/table-slanted-header/table-slanted-header.component';
 import { PicklistList2Component } from './picklist/picklist-list2/picklist-list2.component';
 import { PicklistList3Component } from './picklist/picklist-list3/picklist-list3.component';
@@ -28,6 +29,7 @@ import { TableSlantedSortComponent } from './table/table-slanted-sort/table-slan
   	PicklistList2Component,
   	PicklistList3Component,
   	TableSlantedSortComponent, 
+    MultiPickListComponent,
   ]
 })
 export class HomeModule { }
