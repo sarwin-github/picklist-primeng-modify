@@ -66,6 +66,7 @@
 
 .table-header-col-group > div {
   border: 1px solid gray !important;
+  border-bottom: none !important;
   padding: 10px;
 }
 
@@ -76,4 +77,9 @@
   -o-transform:skew(45deg,0deg);
   transform:skew(45deg,0deg);
   display: inline-block !important;
+}
+
+.full-width{
+    width: 100% !important;
+    overflow-x: hidden !important;
 }
