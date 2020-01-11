@@ -8,6 +8,7 @@
 			<p-table [ngClass]="slanted ? 'p-table-custom': ''" 
 				[columns]="cols" 
 				[value]="cars" 
+				[scrollable]="true" scrollHeight="200px"
 				(sortFunction)="customSort($event)" 
 				[customSort]="true">
 			        <ng-template pTemplate="header" let-columns>
@@ -43,7 +44,12 @@
 		<div class="offset-2 col-8 py-5 px-3 text-center">
 			<h4 class="text-muted m-0 mb-5">Testable Table Slanted Sort</h4>
 
-			<p-table [ngClass]="slanted ? 'p-table-custom': ''" 
+			<p-table [scrollable]="true" 
+				scrollHeight="200px" 
+				[virtualScroll]="true" 
+				(onLazyLoad)="loadDataOnScroll($event)"
+	    		[lazy]="true" [totalRecords]="totalRecords"
+
 				[columns]="cols" 
 				[value]="cars">
 			        <ng-template pTemplate="header" let-columns>

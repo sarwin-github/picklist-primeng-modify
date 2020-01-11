@@ -44,6 +44,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 	@media (max-width: 320px) {
     	.outerDiv {
     		min-height: 100px;
+    		z-index: 99999 !important;
     		width: 47px;
     		border: 1px solid gray !important;
     		background: white !important;
@@ -61,6 +62,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 	@media (min-width: 375px) and (max-width: 424px) {
     	.outerDiv {
     		min-height: 100px;
+    		z-index: 99999 !important;
     		width: 55px;
     		border: 1px solid gray !important;
     		background: white !important;
@@ -80,6 +82,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     @media (min-width: 424px) and (max-width: 767px) {
     	.outerDiv {
     		min-height: 100px;
+    		z-index: 99999 !important;
     		width: 64px;
     		border: 1px solid gray !important;
     		background: white !important;
@@ -97,6 +100,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     @media (min-width: 768px) and (max-width: 1023px) {
     	.outerDiv {
     		min-height: 100px;
+    		z-index: 99999 !important;
     		width: 113px;
     		border: 1px solid gray !important;
     		background: white !important;
@@ -114,6 +118,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     @media (min-width: 1024px) and (max-width: 1439px) {
     	.outerDiv {
     		min-height: 100px;
+    		z-index: 99999 !important;
     		width: 120%;
     		border: 1px solid gray !important;
     		background: white !important;
@@ -131,6 +136,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     @media (min-width: 1440px) {
     	.outerDiv {
     		min-height: 100px;
+    		z-index: 99999 !important;
     		width: 115%;
     		border: 1px solid gray !important;
     		background: white !important;
@@ -179,4 +185,13 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
     :host ::ng-deep .ui-table .ui-table-thead > tr > th {
         top: 100px;
     }
+}
+
+.loading-text {
+    display: block;
+    background-color: #f1f1f1;
+    min-height: 19px;
+    animation: pulse 1s infinite ease-in-out;
+    text-indent: -99999px;
+    overflow: hidden;
 }

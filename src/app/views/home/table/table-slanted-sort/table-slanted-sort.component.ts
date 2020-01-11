@@ -3,6 +3,7 @@ import { Car } from '../../../../shared/domain/car';
 import { CarService } from '../../../../shared/services/car/car.service';
 import { mainAnimations } from '../../../../shared/animations/main-animations';
 import { SortEvent } from 'primeng/api';
+import { LazyLoadEvent } from 'primeng/api';
 
 @Component({
   selector: 'table-slanted-sort',
@@ -16,10 +17,26 @@ export class TableSlantedSortComponent implements OnInit {
 
     public slanted: boolean;
 
+    virtualCars: Car[];
+
+    totalRecords: number;
+
+    frozenCars: Car[];
+
+    frozenCols: any[];
+
+    scrollableCols: any[];
+
+    sales: any[];
+
+    loading: boolean;
+
+    inmemoryData: Car[];
+
   	constructor(private carService: CarService) { }
 
     ngOnInit() {
-        this.carService.getCarsSmall().then(cars => this.cars = cars);
+        this.carService.getCarsMedium().then(cars => this.cars = cars);
 
         this.cols = [
             { field: 'vin', header: 'Vin' },
@@ -29,6 +46,8 @@ export class TableSlantedSortComponent implements OnInit {
         ];
 
         this.slanted = true;
+        this.totalRecords = 100;
+        this.loading = true;
     }
 
     customSort(event: SortEvent) {
@@ -50,6 +69,31 @@ export class TableSlantedSortComponent implements OnInit {
 
             return (event.order * result);
         });
+    }
+
+     loadDataOnScroll(event: LazyLoadEvent) {      
+        this.loading = true;   
+
+        //for demo purposes keep loading the same dataset 
+        //in a real production application, this data should come from server by building the query with LazyLoadEvent options 
+        setTimeout(() => {
+            //last chunk
+            if (event.first === 249980)
+                this.virtualCars = this.loadChunk(event.first, 20);
+            else
+                this.virtualCars = this.loadChunk(event.first, event.rows);        
+            
+            this.loading = false;  
+        }, 250);   
+    }
+
+    loadChunk(index, length): Car[] {
+        let chunk: Car[] = [];
+        for (let i = 0; i < length; i++) {
+            chunk[i] = {...this.inmemoryData[i], ...{vin: (index + i)}};
+        } 
+
+        return chunk;
     }
 
 }
