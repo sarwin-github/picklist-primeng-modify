@@ -10,7 +10,8 @@ import { mainAnimations } from '../../../../shared/animations/main-animations';
   styleUrls: ['./table-slanted-header.component.scss']
 })
 export class TableSlantedHeaderComponent implements OnInit {
-	  public cars: Car[];
+	public cars: Car[];
+    public cars2: Car[];
     public cols: any[];
 
     public slanted: boolean;
@@ -18,7 +19,13 @@ export class TableSlantedHeaderComponent implements OnInit {
   	constructor(private carService: CarService) { }
 
     ngOnInit() {
-        this.carService.getCarsSmall().then(cars => this.cars = cars);
+        this.carService.getCarsSmall().then(cars => {
+            this.cars = cars;
+        });
+
+        this.carService.getCarsMedium().then(cars => {
+            this.cars2 = cars;
+        });
 
         this.cols = [
             { field: 'vin', header: 'Vin' },
