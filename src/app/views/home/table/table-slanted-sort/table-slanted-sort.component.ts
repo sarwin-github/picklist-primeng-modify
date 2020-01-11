@@ -50,6 +50,22 @@ export class TableSlantedSortComponent implements OnInit {
         this.loading = true;
     }
 
+    removeHighlight(){
+        setTimeout(() => {
+            var elements = document.getElementsByClassName('ui-sortable-column');
+
+            for(let i = 0; i < elements.length; i++){
+                console.log(elements[i])
+                elements[i].classList.remove('ui-state-highlight') 
+            }
+
+        }, 100)
+        /*
+            elements[0].classList.remove('ui-state-highlight')
+        */
+    }
+
+
     customSort(event: SortEvent) {
         event.data.sort((data1, data2) => {
             let value1 = data1[event.field];
