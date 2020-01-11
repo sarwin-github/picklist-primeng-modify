@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { TableSlantedColgroupComponent } from './table-materials/table-slanted-colgroup/table-slanted-colgroup.component';
 import { TableSlantedSortComponent } from './table-materials/table-slanted-sort/table-slanted-sort.component';
+import { ResizableModule } from 'angular-resizable-element';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { TableSlantedSortComponent } from './table-materials/table-slanted-sort/
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
+    ResizableModule,
     RouterModule.forChild(MaterialsRoutes)
   ],
   declarations: [

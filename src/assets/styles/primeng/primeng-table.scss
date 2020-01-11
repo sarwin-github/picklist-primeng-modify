@@ -152,23 +152,48 @@
 }
 
 
-:host ::ng-deep .ui-table .ui-table-thead > tr > th {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 70px;
-}
+.p-table-rotate{
+    .table-with-rotated-header {
+      border-collapse: collapse;
 
-@media screen and (max-width: 64em) {
-    :host ::ng-deep .ui-table .ui-table-thead > tr > th {
-        top: 100px;
+      td {
+        padding: 10px 5px;
+        border: 1px solid #ccc;
+      }
     }
-}
 
-.loading-text {
-    display: block;
-    background-color: #f1f1f1;
-    min-height: 19px;
-    animation: pulse 1s infinite ease-in-out;
-    text-indent: -99999px;
-    overflow: hidden;
+    .rotated-header {
+      position: relative;
+      height: 80px;
+
+      .rotated-header-text {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        transform: translate(50%, 50%) rotate(-45deg);
+        transform-origin: 0% 50%;
+        padding-left: 1em;
+
+      }
+
+      .rotated-header-decoration {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: skewX(-45deg);
+        transform-origin: 0 100%;
+        border: 1px solid gray;
+        border-bottom: none;
+        outline: 1px gray solid;
+      }
+
+      &:not(:first-child) .rotated-header-decoration {
+        border-left: none;
+      }
+    }
 }

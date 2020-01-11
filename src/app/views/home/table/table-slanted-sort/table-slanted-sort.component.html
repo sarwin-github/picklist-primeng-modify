@@ -1,50 +1,9 @@
 
 
-<div class="container py-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
+<div class="py-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
-		<div class="offset-2 col-8 py-5 px-3 text-center">
-			<h4 class="text-muted m-0 mb-5">Testable Table Slanted Sort</h4>
-
-			<p-table [ngClass]="slanted ? 'p-table-custom': ''" 
-				[columns]="cols" 
-				[value]="cars" 
-				[scrollable]="true" scrollHeight="200px"
-				(sortFunction)="customSort($event)" 
-				[customSort]="true">
-			        <ng-template pTemplate="header" let-columns>
-			            <tr>
-			                <th *ngFor="let col of columns" 
-			                [pSortableColumn]="col.field"
-			                (click)="removeHighlight()">
-			                    <div class="outerDiv"> 
-    			                    <div class="innerDiv">
-    			                    	<p-sortIcon [field]="col.field"></p-sortIcon>
-    			                    	{{col.header}} 
-    			                    </div>
-    			                </div>
-			                    
-			                </th>
-			            </tr>
-			        </ng-template>
-			        <ng-template pTemplate="body" let-rowData let-columns="columns">
-			            <tr>
-			                <td *ngFor="let col of columns">
-			                    {{rowData[col.field]&#125;&#125;
-			                </td>
-			            </tr>
-			        </ng-template>
-			    </p-table>
-			
-		</div>
-	</div>
-</div>
-
-
-
-<div class="container py-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
-	<div class="row">
-		<div class="offset-2 col-8 py-5 px-3 text-center">
-			<h4 class="text-muted m-0 mb-5">Testable Table Slanted Sort</h4>
+		<div class="col-12 py-5 px-3 text-center">
+			<h4 class="text-muted m-0 mb-5">Testable Table Column Group</h4>
 
 			<p-table [scrollable]="true" 
 				scrollHeight="200px" 

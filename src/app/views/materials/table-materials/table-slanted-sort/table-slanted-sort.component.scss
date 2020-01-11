@@ -13,6 +13,7 @@ thead, tbody tr {
     table-layout:fixed;/* even columns width , fix width of table too*/
 }
 
+
 .bg-blue{
 	background: blue !important;
 }
@@ -30,9 +31,21 @@ thead, tbody tr {
 	text-align: center;
 }
 
+p.ui-column-resizer {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 8px;
+  height: 100%;
+  padding: 0;
+  cursor: col-resize;
+  border: 1px solid transparent;
+}
+
 .table-header-rotated th.rotate-45{
 	height: 100px;
-	width: 40px;
 	min-width: 40px;
 	max-width: 40px;
 	position: relative;
@@ -45,17 +58,18 @@ thead, tbody tr {
 .table-header-rotated th.rotate-45 > div{
 	position: relative;
 	top: 0px;
-  	left: 50px; /* 80 * tan(45) / 2 = 50 where 100 is the height on the cell and 45 is the transform angle*/
-  	height: 100%;
-    -ms-transform:skew(-45deg,0deg);
-    -moz-transform:skew(-45deg,0deg);
-    -webkit-transform:skew(-45deg,0deg);
-    -o-transform:skew(-45deg,0deg);
-    transform:skew(-45deg,0deg);
-    overflow: hidden;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    border-top: 1px solid #dddddd;
+  left: 50px; /* 80 * tan(45) / 2 = 50 where 100 is the height on the cell and 45 is the transform angle*/
+  height: 100%;
+  -ms-transform:skew(-45deg,0deg);
+  -moz-transform:skew(-45deg,0deg);
+  -webkit-transform:skew(-45deg,0deg);
+  -o-transform:skew(-45deg,0deg);
+  transform:skew(-45deg,0deg);
+  overflow: hidden;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
+  cursor: col-resize;
 }
 
 .table-header-rotated th.rotate-45 > div:nth-child(even){

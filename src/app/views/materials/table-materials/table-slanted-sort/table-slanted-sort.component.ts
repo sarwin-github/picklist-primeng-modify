@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { Car } from '../../../../shared/domain/car';
 import { CarService } from '../../../../shared/services/car/car.service';
 import { mainAnimations } from '../../../../shared/animations/main-animations';
 import { SortEvent } from 'primeng/api';
 import { LazyLoadEvent } from 'primeng/api';
+import { ResizeEvent } from 'angular-resizable-element';
 
 @Component({
   selector: 'custom-table-slanted-sort',
@@ -19,44 +20,43 @@ export class TableSlantedSortComponent implements OnInit {
     public slanted: boolean;
     public scrollable: boolean;
 
-    public displayedColumns: any = [
-    	{
-	    	name: "vin",
-	    	display: "Vin"
-    	},
-    	{
-	    	name: "year",
-	    	display: "Year"
-    	},
-    	{
-	    	name: "brand",
-	    	display: "Brand"
-    	},
-    	{
-	    	name: "color",
-	    	display: "Color"
-    	},
-    ];
+    public displayedColumns: any;
 
     public sort = {
     	column: "",
     	direction: ""
     }
 
-  	constructor(private carService: CarService) { }
+  	constructor(private carService: CarService,
+        private renderer: Renderer) { }
 
     ngOnInit() {
         this.carService.getCarsMedium().then(cars => this.cars = cars);
-
-        this.cols = [
-            { field: 'vin', header: 'Vin' },
-            { field: 'year', header: 'Year' },
-            { field: 'brand', header: 'Brand' },
-            { field: 'color', header: 'Color' }
-        ];
-
         this.slanted = true;
         this.scrollable = true;
+
+        this.displayedColumns = [
+            {
+                name: "vin",
+                display: "Vin",
+                width: '40px'
+            },
+            {
+                name: "year",
+                display: "Year",
+                width: '40px'
+            },
+            {
+                name: "brand",
+                display: "Brand",
+                width: '40px'
+            },
+            {
+                name: "color",
+                display: "Color",
+                width: '40px'
+            },
+        ];
     }
 
  
@@ -73,9 +73,45 @@ export class TableSlantedSortComponent implements OnInit {
     		column : column,
     		direction : direction
     	};
+
     	this.cars = sorted;
     }
 
+    resizeColumn(e, column, i){
+
+        console.log('HEY HEY', column, this.displayedColumns[i].width)
+    }
 
 
+    start: any = undefined;
+    pressed: boolean = false;
+    startX: any;
+    startWidth: any;
+    resizableFnMousemove:any;
+    resizableFnMouseup: any;
+
+    resizeTable(event: any, column: any) {
+      this.start = event.target;
+      this.pressed = true;
+      this.startX = event.pageX;
+      this.startWidth = this.start.clientWidth;
+      this.mouseMove(column);
+    }
+
+    mouseMove(column: any) {
+      this.resizableFnMousemove = this.renderer.listen('document', 'mousemove', (event) => {
+        if (this.pressed) {
+          let width = this.startWidth + (event.pageX - this.startX);
+          let index = this.start.cellIndex;
+          column.width = width;
+        }
+      });
+      this.resizableFnMouseup = this.renderer.listen('document', 'mouseup', (event) => {
+        if (this.pressed) {
+          this.pressed = false;
+          this.resizableFnMousemove();
+          this.resizableFnMouseup();
+        }
+      });
+    };
 }

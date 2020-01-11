@@ -22,4 +22,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 }
 
 
-
+.ui-table .ui-table-thead > tr > th {
+  border: none !important;
+  background-color: unset !important;
+}
