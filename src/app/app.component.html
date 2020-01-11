@@ -1,56 +1,44 @@
-<p-pickList
-    dragdrop="true"
-    [source]="source"
-    [target]="target"
-    sourceHeader="Select columns to import"
-    targetHeader="Imported columns"
->
-    <ng-template
-        let-field
-        pTemplate="item"
-    >
-        <div
-            class="field ui-helper-clearfix"
-            [ngClass]="field.type"
+<div style="margin: 20px 120px 20px 20px;">
+  <p-table [value]="sales">
+    <ng-template pTemplate="header">
+      <tr>
+        <th
+          class="rotated-header"
+          [pSortableColumn]="'vin'"
+          style="width: 120px;"
         >
-            <div style="padding: 6px; color: #eee; font-size: 14px;">{{ field.name }}</div>
-        </div>
+          <div class="rotated-header-text">
+            <p-sortIcon [field]="'vin'"></p-sortIcon>Vin
+          </div>
+          <div class="rotated-header-decoration"></div>
+        </th>
+        <th class="rotated-header" [pSortableColumn]="'year'">
+          <div class="rotated-header-text">
+            <p-sortIcon [field]="'year'"></p-sortIcon>Year
+          </div>
+          <div class="rotated-header-decoration"></div>
+        </th>
+        <th class="rotated-header" [pSortableColumn]="'brand'">
+          <div class="rotated-header-text">
+            <p-sortIcon [field]="'brand'"></p-sortIcon>Brand
+          </div>
+          <div class="rotated-header-decoration"></div>
+        </th>
+        <th class="rotated-header" [pSortableColumn]="'color'">
+          <div class="rotated-header-text">
+            <p-sortIcon [field]="'color'"></p-sortIcon>Color
+          </div>
+          <div class="rotated-header-decoration"></div>
+        </th>
+      </tr>
     </ng-template>
-</p-pickList>
-
-<p></p>
-<p></p>
-
-<p-multiPickList
-    [lists]="lists"
-    [sourceStyle]="{ 'min-width.px': 220 }"
-    [targetStyle]="{ 'min-width.px': 220, 'margin-right.px': 10 }"
->
-    <ng-template
-        let-field
-        pTemplate="item"
-    >
-        <div
-            class="field ui-helper-clearfix"
-            [ngClass]="field.type"
-        >
-            <i
-                *ngIf="field.remark"
-                class="pi pi-search"
-                style="float: right; padding: .25em; color: #eee;"
-            ></i>
-            <div style="display: flex; padding: 6px; color: #eee; font-size: 14px;">
-                <i class="pi pi-ellipsis-v"></i>
-                <span>
-                    {{ field.name }}
-                    <div
-                        *ngIf="field.remark"
-                        style="padding-top: .25em; font-size: smaller; font-style: italic;"
-                    >
-                        {{ field.remark }}
-                    </div>
-                </span>
-            </div>
-        </div>
+    <ng-template pTemplate="body" let-sale>
+      <tr>
+        <td>{{ sale.vin }}</td>
+        <td>{{ sale.year }}</td>
+        <td>{{ sale.brand }}</td>
+        <td>{{ sale.color }}</td>
+      </tr>
     </ng-template>
-</p-multiPickList>
+  </p-table>
+</div>
