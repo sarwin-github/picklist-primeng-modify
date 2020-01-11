@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MultiPickListComponent } from './components/multi-picklist/multi-picklist.component';
 
 const classesToInclude = [
-  HeaderComponent
+  HeaderComponent,
+  
 ]
 
 @NgModule({

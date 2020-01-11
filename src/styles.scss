@@ -1,19 +1,170 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "/assets/styles/primeng/picklist.scss";
+@import "/assets/styles/primeng/algorea.scss";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 ::-webkit-scrollbar {
-    width: 8px;
+	width: 8px;
 }
- 
+
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    background: #4B515D;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+	background: #4B515D;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
+
+
+
+.p-table-custom{
+	.ui-table-thead{
+		padding: 0 !important;
+		border: none !important;
+		margin: none !important;
+		tr{
+			background: none !important;
+			border: none !important;
+		}
+	}
+
+	
+
+	th{
+		margin: none !important;
+		padding: none !important;
+		border: none !important;
+		background: none !important;
+	}
+
+	@media (max-width: 320px) {
+    	.outerDiv {
+    		min-height: 100px;
+    		width: 47px;
+    		border: 1px solid gray !important;
+    		background: white !important;
+    		transform: skew(-30deg) translateX(58%);
+    	}
+
+    	th .outerDiv {
+    		border-left: 1px solid black;
+			position: relative;
+    		left: -50% !important;
+    		bottom: -7px;
+    	}
+    }
+
+	@media (min-width: 375px) and (max-width: 424px) {
+    	.outerDiv {
+    		min-height: 100px;
+    		width: 55px;
+    		border: 1px solid gray !important;
+    		background: white !important;
+    		transform: skew(-30deg) translateX(58%);
+    	}
+
+    	th .outerDiv {
+    		border-left: 1px solid black;
+			position: relative;
+    		left: -50% !important;
+    		bottom: -7px;
+    	}
+    }
+
+
+
+    @media (min-width: 424px) and (max-width: 767px) {
+    	.outerDiv {
+    		min-height: 100px;
+    		width: 64px;
+    		border: 1px solid gray !important;
+    		background: white !important;
+    		transform: skew(-30deg) translateX(58%);
+    	}
+
+    	th .outerDiv {
+    		border-left: 1px solid black;
+			position: relative;
+    		left: -50% !important;
+    		bottom: -7px;
+    	}
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+    	.outerDiv {
+    		min-height: 100px;
+    		width: 113px;
+    		border: 1px solid gray !important;
+    		background: white !important;
+    		transform: skew(-30deg) translateX(58%);
+    	}
+
+    	th .outerDiv {
+    		border-left: 1px solid black;
+			position: relative;
+    		left: -55% !important;
+    		bottom: -7px;
+    	}
+    }
+
+    @media (min-width: 1024px) and (max-width: 1439px) {
+    	.outerDiv {
+    		min-height: 100px;
+    		width: 120%;
+    		border: 1px solid gray !important;
+    		background: white !important;
+    		transform: skew(-30deg) translateX(58%);
+    	}
+    	
+    	th .outerDiv {
+    		border-left: 1px solid black;
+			position: relative;
+    		left: -57% !important;
+    		bottom: -7px;
+    	}
+    }
+
+    @media (min-width: 1440px) {
+    	.outerDiv {
+    		min-height: 100px;
+    		width: 115%;
+    		border: 1px solid gray !important;
+    		background: white !important;
+    		transform: skew(-30deg) translateX(58%);
+
+
+    	}
+    	
+    	th .outerDiv {
+    		border-left: 1px solid black;
+			position: relative;
+    		left: -57% !important;
+    		bottom: -7px;
+
+
+    	}
+
+    	
+
+    	.ui-sortable-column {
+    
+    		z-index: 8888;
+    		background: white !important;
+    	}
+    }
+
+	.innerDiv {
+		position: absolute;
+		height: 85px;
+		bottom: -64%;
+		left: 10px;
+		transform: skew(30deg) rotate(-60deg);
+		transform-origin: 0 0;
+		text-align: left;
+	}
+}
+

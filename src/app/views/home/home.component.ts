@@ -10,60 +10,9 @@ import { Subscription } from 'rxjs';
 	styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-	private req: Subscription;
-
-	public source_1: any[];
-    public target_1: any[];
-   
-   	public mandatory_2: any[];
-   	public recommended_2: any[];
-   	public nonRequestedField_2: any[];
-
-
 	constructor() { }
 
     ngOnInit() {
-        // first list
-        this.source_1 = ["Last name", "Grade", "Sub-group"];
-        this.target_1 = ["First name"];
-
-        // second picklist
-        this.nonRequestedField_2 = [{
-                "title": "Online"
-            },
-            {
-                "title": `Change Password`
-            }
-        ];
-
-        this.mandatory_2 = [
-            {
-                "title": "First name"
-            },
-            {
-                "title": `Last name`
-            },
-            {
-                "title": `Login`
-            }
-        ];
-        
-        this.recommended_2 = [
-    		{
-    			"title": "E-mail"
-    		},
-    		{
-    			"title": `Member's Activity`,
-    			"description": "Councours castor 2018"
-    		},
-    		{
-    			"title": `Skills`,
-    			"description": `Elaboration d'un graphe lorem ipsum`
-    		},
-    		{
-    			"title": `Participation code`
-    		}
-    	];
     }
 
 	ngOnDestroy(){

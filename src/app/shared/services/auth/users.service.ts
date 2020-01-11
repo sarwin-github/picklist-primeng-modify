@@ -2,7 +2,6 @@ import { Http } from "@angular/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { map, filter, switchMap, catchError } from 'rxjs/operators';
-import { CountryDB } from '../../fake-db/countries';
 import { Router } from '@angular/router';
 import { hostUrl } from '../host-config';
 
@@ -16,16 +15,8 @@ export class UsersService {
 
   	constructor(private http: Http, 
   		private router: Router) {
-
-  		const countryDB = new CountryDB();
-  		this.countries = countryDB.countries;
   	}
 
-  	countries: any[];
-
-  	getCountries(): Observable<any> {
-  		return of(this.countries.slice());
-  	}
 
   	// Get user login form
 	getUserLoginForm(): Observable<any>{

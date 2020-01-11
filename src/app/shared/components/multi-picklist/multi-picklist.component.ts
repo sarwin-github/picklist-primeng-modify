@@ -144,7 +144,7 @@ export class MultiPickListComponent implements AfterContentInit {
 
 @NgModule({
   imports: [CommonModule, SharedModule],
-  exports: [MultiPickList, SharedModule],
-  declarations: [MultiPickList]
+  exports: [MultiPickListComponent, SharedModule],
+  declarations: [MultiPickListComponent]
 })
 export class MultiPickListModule { }
