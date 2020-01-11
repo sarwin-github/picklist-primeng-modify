@@ -18,6 +18,16 @@ export const rootRouterConfig: Routes = [
     component: HeaderComponent,
     children: [
       {
+        path: 'materials',
+        loadChildren: './views/materials/materials.module#MaterialsModule'
+      }
+    ]
+  },
+  {
+    path: '',
+    component: HeaderComponent,
+    children: [
+      {
         path: 'user',
         loadChildren: './views/auth/user.module#UserModule'
       }
