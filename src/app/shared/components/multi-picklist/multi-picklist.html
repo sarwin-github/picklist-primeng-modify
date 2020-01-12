@@ -26,12 +26,14 @@
             (drop)="onDrop($event, index, i)"
             (dragleave)="onDragLeave($event, index)"
           ></li>
-          <li 
-            [ngClass]="{'ui-picklist-item':true, 'ui-state-disabled': disabled}"
+          <li
+            [ngClass]="{'ui-picklist-item':true}"
             tabindex="0"
             [draggable]="dragdrop"
+            (dragover)="onDragOver($event, index, i + 1)"
             (dragstart)="onDragStart($event, index, i)"
             (dragend)="onDragEnd($event)"
+            (drop)="onDrop($event, index, i + 1)"
           >
             <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item, index: i}">
             </ng-container>

@@ -49,7 +49,7 @@ export class MultiPickListComponent implements AfterContentInit {
   onDragLeave(event: DragEvent, list: number) {
     if (this.debug) console.log('leave');
 
-    this.onDropPoint = false;
+    this.onDropPoint = true;
     this.to = -1;
   }
 
