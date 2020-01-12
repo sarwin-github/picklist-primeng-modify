@@ -84,10 +84,10 @@
 			<!-- <p-table class="table-body" -->
 			<p-table
 				[columns]="cols" [value]="cars2"
-				[scrollable]="true" scrollHeight="335px">
+				[scrollable]="true" [style]="{maxWidth:'700px'}" scrollHeight="335px">
 					<ng-template pTemplate="colgroup" let-columns>
 						<colgroup>
-							<col *ngFor="let col of columns" style="width:180px">
+							<col *ngFor="let col of columns" style="width:220px">
 						</colgroup>
 					</ng-template>
 			        <ng-template pTemplate="header" let-columns>
