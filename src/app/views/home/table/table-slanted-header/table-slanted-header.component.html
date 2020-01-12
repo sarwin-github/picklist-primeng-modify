@@ -42,16 +42,19 @@
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
 		<div class="col-11 py-5 text-center">
-			<h4 class="text-muted m-0 mb-5">Testable Table Slanted With Resize and Scroll</h4>
+			<h4 class="text-muted m-0 mb-5">Testable Table Slanted With Resize</h4>
 
 			<p-table class="p-table-resizable"
-				
 				[value]="cars2" 
-				[resizableColumns]="true">
+				[resizableColumns]="true"
+				columnResizeMode="expand" 
+				[paginator]="true" 
+				[rows]="10"
+				[rowsPerPageOptions]="[10,15,20,25]">
 			    <ng-template pTemplate="header">
 			        <tr>
 			            <th *ngFor="let col of cols" 
-			            class="rotated-header-resize" 
+			            class="rotated-header-resize wrap" 
 			            pResizableColumn
 			            [pSortableColumn]="col.field"
 			            (click)="removeHighlight()">

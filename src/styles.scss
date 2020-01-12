@@ -28,10 +28,12 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 }
 
 .p-table-resizable{
-	.ui-table .ui-table-thead > tr > th {
+	.ui-table-thead {
 	  border: none !important;
 	  border-top: 1px solid gray !important;
 	  background-color: unset !important;
+	  padding-left: 50px;
+
 	}
 }
 
