@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { Car } from '../../../../shared/domain/car';
 import { CarService } from '../../../../shared/services/car/car.service';
 import { mainAnimations } from '../../../../shared/animations/main-animations';
@@ -34,7 +34,8 @@ export class TableSlantedSortComponent implements OnInit {
 
     inmemoryData: Car[];
 
-  	constructor(private carService: CarService) { }
+  	constructor(private carService: CarService,
+          private renderer: Renderer) { }
 
     ngOnInit() {
         this.carService.getCarsSmall().then(cars => this.cars = cars);
@@ -43,10 +44,10 @@ export class TableSlantedSortComponent implements OnInit {
         });
 
         this.cols = [
-            { field: 'vin', header: 'Vin' },
-            { field: 'year', header: 'Year' },
-            { field: 'brand', header: 'Brand' },
-            { field: 'color', header: 'Color' }
+            { field: 'vin', header: 'Vin', width: '40px' },
+            { field: 'year', header: 'Year', width: '40px' },
+            { field: 'brand', header: 'Brand', width: '40px' },
+            { field: 'color', header: 'Color', width: '40px' }
         ];
 
         this.slanted = true;
@@ -90,29 +91,38 @@ export class TableSlantedSortComponent implements OnInit {
         });
     }
 
-     loadDataOnScroll(event: LazyLoadEvent) {      
-        this.loading = true;   
+    start: any = undefined;
+    pressed: boolean = false;
+    startX: any;
+    startWidth: any;
+    resizableFnMousemove:any;
+    resizableFnMouseup: any;
 
-        //for demo purposes keep loading the same dataset 
-        //in a real production application, this data should come from server by building the query with LazyLoadEvent options 
-        setTimeout(() => {
-            //last chunk
-            if (event.first === 249980)
-                this.virtualCars = this.loadChunk(event.first, 20);
-            else
-                this.virtualCars = this.loadChunk(event.first, event.rows);        
-            
-            this.loading = false;  
-        }, 250);   
+    resizeTable(event: any, column: any) {
+      this.start = event.target;
+      this.pressed = true;
+      this.startX = event.pageX;
+      this.startWidth = this.start.clientWidth;
+      this.mouseMove(column);
+      console.log(column)
     }
 
-    loadChunk(index, length): Car[] {
-        let chunk: Car[] = [];
-        for (let i = 0; i < length; i++) {
-            chunk[i] = {...this.inmemoryData[i], ...{vin: (index + i)}};
-        } 
+    mouseMove(column: any) {
+      this.resizableFnMousemove = this.renderer.listen('document', 'mousemove', (event) => {
+        if (this.pressed) {
+          let width = this.startWidth + (event.pageX - this.startX);
+          let index = this.start.cellIndex;
+          column.width = width;
+        }
+      });
 
-        return chunk;
-    }
 
+      this.resizableFnMouseup = this.renderer.listen('document', 'mouseup', (event) => {
+        if (this.pressed) {
+          this.pressed = false;
+          this.resizableFnMousemove();
+          this.resizableFnMouseup();
+        }
+      });
+    };
 }

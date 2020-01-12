@@ -85,11 +85,13 @@ export class MultiPickListComponent implements AfterContentInit {
   toList: number = -1;
   from: number;
   to: number;
-  onDropPoint: boolean = false;
+  onDropPoint: boolean = true;
 
   debug: boolean = true;
 
   dragdrop: boolean = true;
+
+  types: string[] = ['non-requested', 'recommend', 'mandatory']
 
   onDragStart(event: DragEvent, list: number, item: number) {
     (<HTMLLIElement>event.target).blur();
@@ -118,9 +120,12 @@ export class MultiPickListComponent implements AfterContentInit {
     if (this.debug) console.log('drop');
     const list1 = this.lists[this.fromList].list;
     const list2 = this.lists[this.toList].list;
+
     if (this.onDropPoint) {
       const del = list1.splice(this.from, 1);
       list2.splice(this.to, 0, del[0]);
+      list2[index].type = this.types[this.toList];
+
       this.fromList = -1;
       this.toList = -1;
       this.dragging = false;
@@ -133,6 +138,8 @@ export class MultiPickListComponent implements AfterContentInit {
     this.fromList = -1;
     this.toList = -1;
     this.dragging = false;
+
+    
   }
 
   ngAfterContentInit() {
