@@ -5,8 +5,10 @@ import { HomeRoutes } from './home.routing';
 import { HomeComponent } from './home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { PickListModule } from 'primeng/picklist';
 import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown'
 
 import { MultiPickListComponent } from '../../shared/components/multi-picklist/multi-picklist.component';
 import { TableSlantedHeaderComponent } from './table/table-slanted-header/table-slanted-header.component';
@@ -21,6 +23,7 @@ import { TableSlantedSortComponent } from './table/table-slanted-sort/table-slan
     ReactiveFormsModule,
     PickListModule,
     TableModule,
+    DropdownModule,
     RouterModule.forChild(HomeRoutes)
   ],
   declarations: [

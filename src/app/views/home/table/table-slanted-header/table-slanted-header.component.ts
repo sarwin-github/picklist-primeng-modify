@@ -2,6 +2,8 @@ import { Component, OnInit, Renderer } from '@angular/core';
 import { Car } from '../../../../shared/domain/car';
 import { CarService } from '../../../../shared/services/car/car.service';
 import { mainAnimations } from '../../../../shared/animations/main-animations';
+import { SelectItem } from 'primeng/api';
+
 
 @Component({
   selector: 'table-slanted-header',
@@ -15,6 +17,9 @@ export class TableSlantedHeaderComponent implements OnInit {
     public cols: any[];
 
     public slanted: boolean;
+
+    public brands: SelectItem[];
+    public clonedCars: { [s: string]: Car; } = {};
 
   	constructor(private carService: CarService,
         private renderer: Renderer) { }
@@ -35,9 +40,23 @@ export class TableSlantedHeaderComponent implements OnInit {
             { field: 'color', header: 'Color', width: '40px' }
         ];
 
+        this.brands = [
+            { label: 'Audi', value: 'Audi' },
+            { label: 'BMW', value: 'BMW' },
+            { label: 'Fiat', value: 'Fiat' },
+            { label: 'Ford', value: 'Ford' },
+            { label: 'Honda', value: 'Honda' },
+            { label: 'Jaguar', value: 'Jaguar' },
+            { label: 'Mercedes', value: 'Mercedes' },
+            { label: 'Renault', value: 'Renault' },
+            { label: 'VW', value: 'VW' },
+            { label: 'Volvo', value: 'Volvo' }
+        ];
+
         this.slanted = true;
     }
 
+    // remove highlight
     removeHighlight(){
         setTimeout(() => {
             var elements = document.getElementsByClassName('ui-sortable-column');
@@ -47,27 +66,25 @@ export class TableSlantedHeaderComponent implements OnInit {
             }
 
         }, 100)
-        /*
-            elements[0].classList.remove('ui-state-highlight')
-        */
     }
 
-    start: any = undefined;
-    pressed: boolean = false;
-    startX: any;
-    startWidth: any;
-    resizableFnMousemove:any;
-    resizableFnMouseup: any;
+    public start: any = undefined;
+    public pressed: boolean = false;
+    public startX: any;
+    public startWidth: any;
+    public resizableFnMousemove:any;
+    public resizableFnMouseup: any;
 
+    // custom resize table
     resizeTable(event: any, column: any) {
       this.start = event.target;
       this.pressed = true;
       this.startX = event.pageX;
       this.startWidth = this.start.clientWidth;
       this.mouseMove(column);
-      console.log(column)
     }
 
+    // custom resize function
     mouseMove(column: any) {
       this.resizableFnMousemove = this.renderer.listen('document', 'mousemove', (event) => {
         if (this.pressed) {

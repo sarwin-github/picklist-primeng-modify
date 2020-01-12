@@ -4,6 +4,7 @@ import { CarService } from '../../../../shared/services/car/car.service';
 import { mainAnimations } from '../../../../shared/animations/main-animations';
 import { SortEvent } from 'primeng/api';
 import { LazyLoadEvent } from 'primeng/api';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'table-slanted-sort',
@@ -17,22 +18,16 @@ export class TableSlantedSortComponent implements OnInit {
     public cols: any[];
 
     public slanted: boolean;
-
-    virtualCars: Car[];
-
-    totalRecords: number;
-
-    frozenCars: Car[];
-
-    frozenCols: any[];
-
-    scrollableCols: any[];
-
-    sales: any[];
-
-    loading: boolean;
-
-    inmemoryData: Car[];
+    public brands: SelectItem[];
+    public clonedCars: { [s: string]: Car; } = {};
+    public virtualCars: Car[];
+    public totalRecords: number;
+    public frozenCars: Car[];
+    public frozenCols: any[];
+    public scrollableCols: any[];
+    public sales: any[];
+    public loading: boolean;
+    public inmemoryData: Car[];
 
   	constructor(private carService: CarService,
           private renderer: Renderer) { }
@@ -43,11 +38,33 @@ export class TableSlantedSortComponent implements OnInit {
             this.cars2 = cars;
         });
 
+        this.brands = [
+            { label: 'Audi', value: 'Audi' },
+            { label: 'BMW', value: 'BMW' },
+            { label: 'Fiat', value: 'Fiat' },
+            { label: 'Ford', value: 'Ford' },
+            { label: 'Honda', value: 'Honda' },
+            { label: 'Jaguar', value: 'Jaguar' },
+            { label: 'Mercedes', value: 'Mercedes' },
+            { label: 'Renault', value: 'Renault' },
+            { label: 'VW', value: 'VW' },
+            { label: 'Volvo', value: 'Volvo' }
+        ];
+
         this.cols = [
             { field: 'vin', header: 'Vin', width: '40px' },
             { field: 'year', header: 'Year', width: '40px' },
             { field: 'brand', header: 'Brand', width: '40px' },
             { field: 'color', header: 'Color', width: '40px' }
+        ];
+
+        this.frozenCols = [
+            { field: 'vin', header: 'Vin', width: '40px' }
+        ];
+
+        this.frozenCars = [
+            { "brand": "BMW", "year": 2013, "color": "Grey", "vin": "fh2uf23" },
+            { "brand": "Chevrolet", "year": 2011, "color": "Black", "vin": "4525g23" }
         ];
 
         this.slanted = true;

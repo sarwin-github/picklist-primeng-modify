@@ -3,7 +3,7 @@
 <div class="pt-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
 		<div class="col-11 py-5 px-3 text-center">
-			<h4 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Stiky</h4>
+			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Sticky</h5>
 
 			<p-table class="p-table-sticky"
 				[value]="cars" [resizableColumns]="true">
@@ -41,12 +41,12 @@
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
 		<div class="col-11 py-5 text-center">
-			<h4 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Pagenation</h4>
+			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Pagination, Edit</h5>
 
 			<p-table
 				[value]="cars2" 
 				[paginator]="true"
-				[rows]="10"
+				[rows]="15"
 				[rowsPerPageOptions]="[10,15,20,25]" [resizableColumns]="true">
 			    <ng-template pTemplate="header">
 			        <tr>
@@ -65,8 +65,38 @@
 			    </ng-template>
 			    <ng-template pTemplate="body" let-car>
 			        <tr>
-			            <td *ngFor="let col of cols"  class="ui-resizable-column">
-			                    {{car[col.field]}}
+			            <td *ngFor="let col of cols"
+			            pEditableColumn  
+			            class="ui-resizable-column">
+			            	<!-- NORMAL INPUT -->
+			                <p-cellEditor *ngIf="col.field !== 'brand'">
+			                    <ng-template pTemplate="input">
+			                        <input pInputText type="text" 
+			                        [(ngModel)]="car[col.field]">
+			                    </ng-template>
+			                    <ng-template pTemplate="output">
+			                        {{car[col.field]}}
+			                    </ng-template>
+			                </p-cellEditor>
+
+			                <!-- DROPDOWN INPUT -->
+			                <p-cellEditor *ngIf="col.field === 'brand'">
+			                    <ng-template pTemplate="input">
+			                        
+			                        <div class="form-group custom-dropdown">
+			                            <select class="form-control" 
+			                            	style="cursor: pointer !important;"
+			                            	[(ngModel)]="car[col.field]">
+			                            	<option *ngFor="let brands of brands">
+			                            		<span>{{brands.label}}</span>
+			                            	</option>
+			                            </select>
+			                        </div>
+			                    </ng-template>
+			                    <ng-template pTemplate="output">
+			                        {{car[col.field]}}
+			                    </ng-template>
+			                </p-cellEditor>
 			            </td>
 			        </tr>
 			    </ng-template>

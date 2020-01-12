@@ -71,7 +71,7 @@
 
     .rotated-header-decoration {
         @extend .rotated-header-decoration-main;
-        background: #fafafa;
+        background: #fafafa !important;
     }
 
     &:not(:first-child) .rotated-header-decoration {
@@ -91,6 +91,7 @@
 
     .rotated-header-decoration {
         @extend .rotated-header-decoration-main;
+        background: #fafafa !important;
         cursor: col-resize;
     }
 
@@ -114,6 +115,7 @@
   transform:skew(-45deg,0deg);
   padding: 0 !important;
   margin: 0 !important;
+  background: #fafafa !important;
 }
 
 .rotated-header-column-group > div {
@@ -121,6 +123,7 @@
   border: 1px solid gray !important;
   border-bottom: none !important;
   padding: 10px;
+  background: #fafafa !important;
 }
 
 .rotated-header-column-group span {
@@ -131,6 +134,12 @@
   -o-transform:skew(45deg,0deg);
   transform:skew(45deg,0deg);
   display: inline-block !important;
+}
+
+.rotated-header:not(:first-child) {
+  .rotated-header-decoration {
+    border-left: none !important;
+  }
 }
 
 
@@ -152,6 +161,7 @@
     }
   }  
 }
+
 .p-table-resizable{
 	.ui-table-thead {
 	  border: none !important;
@@ -161,6 +171,7 @@
 
 	}
 }
+
 .ui-table-resizable {
 	.ui-table-thead > tr > th {
 		overflow: visible;
@@ -169,12 +180,6 @@
 	.ui-table-wrapper {
 		overflow-x: visible;
 	}
-}
-
-.rotated-header:not(:first-child) {
-  .rotated-header-decoration {
-    border-left: none !important;
-  }
 }
 
 .full-width{
@@ -196,6 +201,32 @@
     top: 0px !important;
     z-index: 1;
   }
+}
+
+.p-table-sticky-column-group{
+  background-color: unset !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0px !important;
+  z-index: 1;
+}
+
+.p-table-sticky-column-group-main{
+  background-color: unset !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0px !important;
+  z-index: 1;
+
+}
+
+.p-table-sticky-column-group-item{
+  border: none !important;
+  background-color: unset !important;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 40px !important;
+  z-index: 1;
 }
 
 .p-table-resizable{
@@ -224,4 +255,23 @@
     width: 100%;
     table-layout: fixed;/* even columns width , fix width of table too*/
   }
+}
+
+
+.custom-dropdown{
+  width: 95%;
+  padding: 0px 10px;
+  cursor: pointer !important;
+  select option{
+    cursor: pointer !important;
+    padding-left: 10px !important;
+  }
+}
+
+.custom-dropdown:after{
+  content: '\f078';
+  font-family: 'FontAwesome';
+  position: absolute;
+  right: 10px !important;
+  top: 10px !important;
 }
