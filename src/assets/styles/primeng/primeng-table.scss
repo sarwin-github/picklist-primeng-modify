@@ -8,37 +8,51 @@
 }
 
 .ui-column-resizer .ui-clickable{
-    background: none !important;
+  background: none !important;
+  border-top: 1px solid gray !important;
 }
 
-.rotated-header {
+.ui-resizable-column{
+  background: none !important;
+  border-top: 1px solid gray !important;
+  
+}
+
+
+.rotated-header-text-main {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform: translate(50%, 50%) rotate(-45deg);
+    transform-origin: 0% 50%;
+    padding-left: 1em;
+    width: 100px;
+}
+
+.rotated-header-decoration-main {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    transform: skewX(-45deg) !important;
+    transform-origin: 0 100% !important;
+    border: 1px solid gray !important;
+}
+
+.rotated-header  {
     position: relative;
     height: 80px;
 
     .rotated-header-text {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        transform: translate(50%, 50%) rotate(-45deg);
-        transform-origin: 0% 50%;
-        padding-left: 1em;
-        width: 100px;
+        @extend .rotated-header-text-main;
     }
 
     .rotated-header-decoration {
-        position: absolute !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        transform: skewX(-45deg) !important;
-        transform-origin: 0 100% !important;
-        border: 1px solid gray !important;
-        border-bottom: none !important;
-
+        @extend .rotated-header-decoration-main;
     }
 
     &:not(:first-child) .rotated-header-decoration {
@@ -47,11 +61,28 @@
 }
 
 
-.table-header-col-group {
+.rotated-header-resize  {
+    position: relative;
+    height: 80px;
+
+    .rotated-header-text {
+        @extend .rotated-header-text-main;
+    }
+
+    .rotated-header-decoration {
+        @extend .rotated-header-decoration-main;
+        border-top: none !important;
+    }
+
+    &:not(:first-child) .rotated-header-decoration {
+        border-left: none;
+    }
+}
+
+.rotated-header-column-group {
   position: relative;
   top: 0px;
   border: none;
-  background: red;
   right: -100px;
   z-index: 9;
   /* Rotate div */
@@ -64,13 +95,13 @@
   margin: 0 !important;
 }
 
-.table-header-col-group > div {
+.rotated-header-column-group > div {
   border: 1px solid gray !important;
   border-bottom: none !important;
   padding: 10px;
 }
 
-.table-header-col-group span {
+.rotated-header-column-group span {
   -ms-transform:skew(45deg,0deg);
   -moz-transform:skew(45deg,0deg);
   -webkit-transform:skew(45deg,0deg);
