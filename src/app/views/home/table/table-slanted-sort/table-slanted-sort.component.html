@@ -79,14 +79,10 @@
 
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
-		<div class="col-11 py-2 px-3 text-center">
-			<h4 class="text-muted m-0 mb-5">Testable Table Column Group with Scroll and Lazy Loading</h4>
+		<div class="col-10 py-2 px-3 text-center">
+			<h4 class="text-muted m-0 mb-5">Testable Table Column Group with Scroll</h4>
 
-			<p-table [scrollable]="true" 
-				scrollHeight="500px" 
-				[virtualScroll]="true" 
-				(onLazyLoad)="loadDataOnScroll($event)"
-	    		[lazy]="true" [totalRecords]="totalRecords"
+			<p-table class="table-body"
 				[columns]="cols" 
 				[value]="cars2">
 			        <ng-template pTemplate="header" let-columns>
@@ -144,7 +140,7 @@
 			                </th>
 	                    </tr>
 			        </ng-template>
-			        <ng-template pTemplate="body" let-rowData let-columns="columns">
+			        <ng-template pTemplate="body" let-rowData let-columns="columns" class="table-body">
 			            <tr>
 			                <td *ngFor="let col of columns">
 			                    {{rowData[col.field]&#125;&#125;

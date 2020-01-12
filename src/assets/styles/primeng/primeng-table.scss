@@ -41,6 +41,7 @@
     transform: skewX(-45deg) !important;
     transform-origin: 0 100% !important;
     border: 1px solid gray !important;
+    border-bottom: none !important;
 }
 
 .rotated-header  {
@@ -113,4 +114,23 @@
 .full-width{
     width: 100% !important;
     overflow-x: hidden !important;
+}
+
+
+.table-body{
+  table{
+    width: 100% !important;
+  }
+
+  tbody {
+    display:block;
+    height:450px;
+    overflow:auto;
+  }
+
+  thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;/* even columns width , fix width of table too*/
+  }
 }
