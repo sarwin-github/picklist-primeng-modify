@@ -13,16 +13,16 @@ export const rootRouterConfig: Routes = [
       }
     ]
   },
-  {
-    path: '',
-    component: HeaderComponent,
-    children: [
-      {
-        path: 'custom',
-        loadChildren: './views/materials/materials.module#MaterialsModule'
-      }
-    ]
-  },
+  // {
+  //   path: '',
+  //   component: HeaderComponent,
+  //   children: [
+  //     {
+  //       path: 'custom',
+  //       loadChildren: './views/materials/materials.module#MaterialsModule'
+  //     }
+  //   ]
+  // },
   {
     path: '',
     component: HeaderComponent,
