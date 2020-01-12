@@ -19,7 +19,7 @@
       >
         <ng-template ngFor let-item [ngForOf]="col.list" let-i="index" let-l="last">
           <li
-            *ngIf="dragdrop"
+            *ngIf="dragdrop" 
             class="ui-picklist-droppoint" 
             [ngClass]="{'ui-picklist-droppoint-highlight': (toList === index && to === i)}"
             (dragover)="onDragOver($event, index,i)"

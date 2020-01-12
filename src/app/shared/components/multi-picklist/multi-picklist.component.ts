@@ -1,4 +1,4 @@
-import { NgModule, Component, ElementRef, AfterContentInit, AfterViewChecked, Input, Output, ContentChildren, QueryList, TemplateRef, EventEmitter, ViewChild } from '@angular/core';
+import { NgModule, Component, Renderer, ElementRef, AfterContentInit, AfterViewChecked, Input, Output, ContentChildren, QueryList, TemplateRef, EventEmitter, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule, PrimeTemplate } from 'primeng/api';
 
@@ -19,23 +19,28 @@ export class MultiPickListComponent implements AfterContentInit {
   @ContentChildren(PrimeTemplate) templates: QueryList<any>;
 
   public itemTemplate: TemplateRef<any>;
-  dragging: boolean;
-  fromList: number = -1;
-  toList: number = -1;
-  from: number;
-  to: number;
-  onDropPoint: boolean = true;
-  debug: boolean = true;
-  dragdrop: boolean = true;
-  types: string[] = ['non-requested', 'recommend', 'mandatory']
+  public dragging: boolean;
+  public fromList: number = -1;
+  public toList: number = -1;
+  public from: number;
+  public to: number;
+  public onDropPoint: boolean = true;
+  public debug: boolean = true;
+  public dragdrop: boolean = true;
+  public types: string[] = ['non-requested', 'recommend', 'mandatory']
 
-  onDragStart(event: DragEvent, list: number, item: number) {
+  constructor(private elRef: ElementRef, private renderer: Renderer){}
+
+  onDragStart(event: any, list: number, item: number) {
+    (<HTMLLIElement>event.target).focus();
     (<HTMLLIElement>event.target).blur();
+    
     this.dragging = true;
     this.fromList = list;
     this.from = item;
   }
 
+  // if item is being dragged on top of other item
   onDragOver(event: DragEvent, list: number, index: number) {
     if (this.debug) console.log('over');
     if (this.dragging) {
@@ -48,7 +53,6 @@ export class MultiPickListComponent implements AfterContentInit {
 
   onDragLeave(event: DragEvent, list: number) {
     if (this.debug) console.log('leave');
-
     this.onDropPoint = true;
     this.to = -1;
   }
@@ -72,6 +76,7 @@ export class MultiPickListComponent implements AfterContentInit {
     }
   }
 
+  // after releasing the drag event
   onDragEnd(event: DragEvent) {
     if (this.debug) console.log('end');
     this.fromList = -1;
