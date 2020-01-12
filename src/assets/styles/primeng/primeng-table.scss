@@ -49,7 +49,18 @@
     border-bottom: none !important;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
 .rotated-header  {
+    @extend .noselect;
     position: relative;
     height: 80px;
 
@@ -59,6 +70,7 @@
 
     .rotated-header-decoration {
         @extend .rotated-header-decoration-main;
+        background: white !important;
     }
 
     &:not(:first-child) .rotated-header-decoration {
@@ -68,6 +80,7 @@
 
 
 .rotated-header-resize  {
+    @extend .noselect;
     position: relative;
     height: 80px;
 
@@ -86,6 +99,7 @@
 }
 
 .rotated-header-column-group {
+  @extend .noselect;
   position: relative;
   top: 0px;
   border: none;
@@ -102,12 +116,14 @@
 }
 
 .rotated-header-column-group > div {
+  @extend .noselect;
   border: 1px solid gray !important;
   border-bottom: none !important;
   padding: 10px;
 }
 
 .rotated-header-column-group span {
+  @extend .noselect;
   -ms-transform:skew(45deg,0deg);
   -moz-transform:skew(45deg,0deg);
   -webkit-transform:skew(45deg,0deg);
@@ -120,6 +136,34 @@
     width: 100% !important;
     overflow-x: hidden !important;
 }
+
+
+.ui-table .ui-table-thead > tr > th {
+  border: none !important;
+  background-color: unset !important;
+}
+
+.p-table-sticky{
+  .ui-table .ui-table-thead > tr > th {
+    border: none !important;
+    background-color: unset !important;
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 10px !important;
+  }
+}
+
+.p-table-resizable{
+  .ui-table-thead {
+    border: none !important;
+    border-top: 1px solid gray !important;
+    background-color: unset !important;
+    padding-left: 50px;
+
+  }
+}
+
+
 
 
 .table-body{
@@ -139,4 +183,3 @@
     table-layout:fixed;/* even columns width , fix width of table too*/
   }
 }
-
