@@ -77,7 +77,7 @@
 
     .rotated-header-decoration {
         @extend .rotated-header-decoration-main;
-        border-top: none !important;
+        cursor: col-resize;
     }
 
     &:not(:first-child) .rotated-header-decoration {
