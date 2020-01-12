@@ -1,0 +1,64 @@
+<div
+  [class]="styleClass"
+  [ngClass]="{'ui-multi-picklist ui-picklist ui-widget ui-helper-clearfix': true,'ui-picklist-responsive': responsive}"
+  [ngStyle]="style"
+>
+  <ng-template ngFor let-col [ngForOf]="lists" let-index="index">
+    <div
+      class="ui-picklist-listwrapper ui-picklist-target-wrapper"
+      [ngClass]="{'ui-picklist-listwrapper-nocontrols': true}"
+    >
+      <div
+        *ngIf="col.header"
+        class="ui-picklist-caption ui-widget-header ui-corner-tl ui-corner-tr"
+      >{{col.header}}</div>
+      <ul
+        class="ui-widget-content ui-picklist-list ui-picklist-target ui-corner-bottom"
+        [ngClass]="{'ui-picklist-highlight': true}"
+        [ngStyle]="targetStyle" 
+      >
+        <ng-template ngFor let-item [ngForOf]="col.list" let-i="index" let-l="last">
+          <li
+            *ngIf="dragdrop"
+            class="ui-picklist-droppoint" 
+            [ngClass]="{'ui-picklist-droppoint-highlight': (toList === index && to === i)}"
+            (dragover)="onDragOver($event, index,i)"
+            (drop)="onDrop($event, index, i)"
+            (dragleave)="onDragLeave($event, index)"
+          ></li>
+          <li 
+            [ngClass]="{'ui-picklist-item':true, 'ui-state-disabled': disabled}"
+            tabindex="0"
+            [draggable]="dragdrop"
+            (dragstart)="onDragStart($event, index, i)"
+            (dragend)="onDragEnd($event)"
+          >
+            <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item, index: i}">
+            </ng-container>
+          </li>
+          <li style="height: 50px; overflow-y: hidden;"
+            *ngIf="dragdrop&&l"
+            class="ui-picklist-droppoint"
+            (dragover)="onDragOver($event, index, i + 1)"
+            (dragleave)="onDragLeave($event, index)"
+            (drop)="onDrop($event, index, i + 1)"
+          ></li>
+
+          <li height="500px"
+            (dragover)="onDragOver($event, index, 0)"
+            (dragleave)="onDragLeave($event, index)"
+            (drop)="onDrop($event, index, 0)"></li>
+        </ng-template>
+        <li
+          *ngIf="dragdrop && col.list.length === 0"
+          class="ui-picklist-droppoint"
+          [ngClass]="{'ui-picklist-droppoint-highlight': (toList == index && to === 0)}"
+          (dragover)="onDragOver($event, index, 0)"
+          (dragleave)="onDragLeave($event, index)"
+          (drop)="onDrop($event, index, 0)"
+        ></li>
+      </ul>
+
+    </div>
+  </ng-template>
+</div>
