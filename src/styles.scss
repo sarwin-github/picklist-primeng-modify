@@ -33,14 +33,6 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 	  border-top: 1px solid gray !important;
 	  background-color: unset !important;
 	}
-
-	.ui-table .ui-table-thead > tr > th{
-	  &:before{
-	  	border: none !important;
-	  	border-top: 1px solid gray !important;
-	  	background-color: unset !important;
-	  }
-	}
 }
 
 

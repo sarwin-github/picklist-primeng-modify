@@ -1,17 +1,4 @@
-table{
-	width: 100% !important;
-}
 
-tbody {
-    display:block;
-    height:450px;
-    overflow:auto;
-}
-thead, tbody tr {
-    display:table;
-    width:100%;
-    table-layout:fixed;/* even columns width , fix width of table too*/
-}
 
 
 .bg-blue{
@@ -20,6 +7,16 @@ thead, tbody tr {
 
 .table-header-rotated th.row-header{
 	width: auto;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
 }
 
 .table-header-rotated td{

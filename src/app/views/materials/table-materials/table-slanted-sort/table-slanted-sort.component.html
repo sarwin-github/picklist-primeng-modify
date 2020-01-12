@@ -9,7 +9,7 @@
   						<tr >
   							<th 
                   *ngFor="let column of displayedColumns; let i = index;"
-                  [ngClass]="slanted ? 'rotate-45' : ''"
+                  [ngClass]="slanted ? 'rotate-45 noselect' : ''"
                   [ngStyle]="{'width': column.width > 0 ? column.width + 'px':'40px'}" 
                   (mousedown)="resizeTable($event, column)"
                   >
