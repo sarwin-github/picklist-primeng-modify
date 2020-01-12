@@ -46,8 +46,7 @@
         </ng-template>
         <li
           *ngIf="dragdrop && col.list.length === 0"
-          class="ui-picklist-droppoint"
-          [ngClass]="{'ui-picklist-droppoint-highlight': (toList == index && to === 0)}"
+          style="height: 150px; overflow-y: hidden;"
           (dragover)="onDragOver($event, index, 0)"
           (dragleave)="onDragLeave($event, index)"
           (drop)="onDrop($event, index, 0)"
