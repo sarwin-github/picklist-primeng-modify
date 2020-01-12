@@ -43,11 +43,6 @@
             (dragleave)="onDragLeave($event, index)"
             (drop)="onDrop($event, index, i + 1)"
           ></li>
-
-          <li height="500px"
-            (dragover)="onDragOver($event, index, 0)"
-            (dragleave)="onDragLeave($event, index)"
-            (drop)="onDrop($event, index, 0)"></li>
         </ng-template>
         <li
           *ngIf="dragdrop && col.list.length === 0"
