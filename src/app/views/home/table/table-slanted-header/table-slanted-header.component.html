@@ -3,21 +3,22 @@
 <div class="pt-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
 		<div class="col-11 py-5 px-3 text-center">
-			<h4 class="text-muted m-0 mb-5">Testable Table Slanted Default with Sticky Header</h4>
+			<h4 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Stiky</h4>
 
 			<p-table class="p-table-sticky"
-				[value]="cars" >
+				[value]="cars" [resizableColumns]="true">
 			    <ng-template pTemplate="header">
 			        <tr>
 			            <th *ngFor="let col of cols" 
 			            class="rotated-header" 
 			            [pSortableColumn]="col.field"
-			            (click)="removeHighlight()">
+			            (click)="removeHighlight()" pResizableColumn>
 			            	<div class="rotated-header-decoration"></div>
 			                <div class="rotated-header-text"> 
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
 			                    {{col.header}}
 			                </div>
+			                
 			            </th>
 			        </tr>
 			    </ng-template>
@@ -40,21 +41,19 @@
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
 		<div class="col-11 py-5 text-center">
-			<h4 class="text-muted m-0 mb-5">Testable Table Slanted With Custom Resize</h4>
+			<h4 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Pagenation</h4>
 
 			<p-table
 				[value]="cars2" 
 				[paginator]="true"
-				[rows]="15"
-				[rowsPerPageOptions]="[10,15,20,25]">
+				[rows]="10"
+				[rowsPerPageOptions]="[10,15,20,25]" [resizableColumns]="true">
 			    <ng-template pTemplate="header">
 			        <tr>
 			            <th *ngFor="let col of cols" 
-			            class="rotated-header-resize " 
+			            class="rotated-header" 
 			            [pSortableColumn]="col.field"
-			            [ngStyle]="{'width': cols.width > 0 ? cols.width + 'px':'40px'}" 
-			            (mousedown)="resizeTable($event, cols)"  
-			            (click)="removeHighlight()">
+			            (click)="removeHighlight()" pResizableColumn>
 			            	<div class="rotated-header-decoration"></div>
 			                <div class="rotated-header-text"> 
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
