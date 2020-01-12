@@ -188,7 +188,12 @@
   }
 }
 
-
+.ui-sortable-column{
+  background: transparent !important;
+  &:active{
+    background: transparent !important;
+  }
+}
 
 
 .table-body{
