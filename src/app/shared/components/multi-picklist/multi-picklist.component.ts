@@ -34,7 +34,7 @@ export class MultiPickListComponent implements AfterContentInit {
   onDragStart(event: any, list: number, item: number) {
     (<HTMLLIElement>event.target).focus();
     (<HTMLLIElement>event.target).blur();
-    
+
     this.dragging = true;
     this.fromList = list;
     this.from = item;
