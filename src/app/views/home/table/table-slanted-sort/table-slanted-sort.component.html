@@ -224,7 +224,7 @@
 			                    <div class="rotated-header-decoration"></div>
 			                    <div class="rotated-header-text"> 
 			                        <p-sortIcon [field]="col.field"></p-sortIcon>
-			                        {{col.header}}
+			                        <span *ngIf="col.header !== 'Vin'">{{col.header}}</span>
 			                    </div>
 			                </th>
 	                    </tr>
