@@ -162,6 +162,20 @@
   }  
 }
 
+.ui-datatable-scrollable-theadclone {
+  display: none;
+}
+
+.ui-datatable-scrollable-theadclone {
+  visibility: hidden;
+}
+
+
+
+.ui-table-scrollable-header-table:not(:first-child){
+  border-top: 1px solid !important;
+}
+
 .p-table-resizable{
 	.ui-table-thead {
 	  border: none !important;
@@ -282,3 +296,4 @@
   overflow-y: scroll !important;
   overflow-x: hidden !important;
 }
+

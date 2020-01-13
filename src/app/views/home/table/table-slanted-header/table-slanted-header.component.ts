@@ -20,7 +20,8 @@ export class TableSlantedHeaderComponent implements OnInit {
     public slanted: boolean;
     public brands: SelectItem[];
     public clonedCars: { [s: string]: Car; } = {};
-    
+    public frozenCols: any[];
+    public scrollableCols: any[];
 
   	constructor(private carService: CarService,
         private renderer: Renderer) { }
@@ -52,6 +53,16 @@ export class TableSlantedHeaderComponent implements OnInit {
             { label: 'Renault', value: 'Renault' },
             { label: 'VW', value: 'VW' },
             { label: 'Volvo', value: 'Volvo' }
+        ];
+
+        this.frozenCols = [
+            { field: 'vin', header: 'Vin', width: '40px' }
+        ];
+        
+        this.scrollableCols = [
+            { field: 'year', header: 'Year', width: '40px' },
+            { field: 'brand', header: 'Brand', width: '40px' },
+            { field: 'color', header: 'Color', width: '40px' },
         ];
 
         this.slanted = true;

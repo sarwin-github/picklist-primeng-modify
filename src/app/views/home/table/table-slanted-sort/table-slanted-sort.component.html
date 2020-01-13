@@ -147,6 +147,7 @@
 			            </tr>
 			        </ng-template>
 
+			        <!-- SELECTED -->
 	        	    <ng-template pTemplate="summary">
 	                    <div class="selected-div">
 	                    	<h6 class="mt-3 text-left" *ngIf="selectedCar">Selected Cars</h6>
@@ -171,19 +172,19 @@
 	</div>
 </div>
 
-<!-- Table 5 -->
+<!-- Table 6 -->
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
 		<div class="col-10 py-2 mt-5 px-3 text-center">
-			<h5 class="text-muted m-0 mb-5 ml-5">Primeng Table With Slanted Header, Col Group, Sort, Multiple Selection, Scroll</h5>
+			<h5 class="text-muted m-0 mb-5 ml-5">Primeng Table With Slanted Header, Col Group, Sort, Multiple Selection, Scroll, Frozen Column</h5>
 			
 			<p-table
 				[columns]="scrollableCols" 
-				[value]="cars2"
+				[value]="cars3"
 				[scrollable]="true" 
 				[style]="{maxWidth:'700px'}" 
 				selectionMode="multiple" 
-				[(selection)]="selectedCar"
+				[(selection)]="selectedCar2"
 				[frozenColumns]="frozenCols" 
 				[frozenValue]="frozenCars" 
 				frozenWidth="220px"
@@ -191,7 +192,7 @@
 				>
 					<ng-template pTemplate="colgroup" let-columns>
 						<colgroup>
-							<col *ngFor="let col of scrollableCols" style="width:220px">
+							<col *ngFor="let col of columns" style="width:220px">
 						</colgroup>
 					</ng-template>
 			        <ng-template pTemplate="header" let-columns>
@@ -203,7 +204,7 @@
 			                	<div class="rotated-header-decoration"></div>
 			                    <div class="rotated-header-text"> 
 			                        <p-sortIcon [field]="'vin'"></p-sortIcon>
-			                        Vin
+			                        Vin 
 			                    </div>
 	                        </th>
 	                        <th colspan="3" class="rotated-header-column-group">
@@ -227,6 +228,7 @@
 			                </th>
 	                    </tr>
 			        </ng-template>
+
 			        <ng-template pTemplate="body" 
 				        let-rowData let-columns="columns" 
 				        let-rowIndex="rowIndex">
@@ -237,10 +239,11 @@
 			            </tr>
 			        </ng-template>
 
+			        <!-- SELECTED -->
 	        	    <ng-template pTemplate="summary">
 	                    <div class="selected-div">
-	                    	<h6 class="mt-3 text-left" *ngIf="selectedCar">Selected Cars</h6>
-	                    	<div class="row px-4" *ngFor="let selectedCar of selectedCar; let i = index;">
+	                    	<h6 class="mt-3 text-left" *ngIf="selectedCar2">Selected Cars</h6>
+	                    	<div class="row px-4" *ngFor="let selectedCar of selectedCar2; let i = index;">
 	                    		<div class="col-12"><hr></div>
 	                    		<div class="col-11 p-0" class="text-left">
 	                    		    <span class="mt-3">

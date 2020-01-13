@@ -15,7 +15,9 @@ import { SelectItem } from 'primeng/api';
 export class TableSlantedSortComponent implements OnInit {
 	public cars: Car[];
     public cars2: Car[];
+    public cars3: Car[];
     public selectedCar: Car[];
+    public selectedCar2: Car[];
 
     public cols: any[];
     public colGroupItem: any[];
@@ -38,6 +40,7 @@ export class TableSlantedSortComponent implements OnInit {
         this.carService.getCarsSmall().then(cars => this.cars = cars);
         this.carService.getCarsMedium().then(cars => {
             this.cars2 = cars;
+            this.cars3 = cars;
         });
 
         this.brands = [
