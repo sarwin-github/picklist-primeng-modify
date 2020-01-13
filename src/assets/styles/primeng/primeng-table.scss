@@ -303,8 +303,20 @@
   overflow-x: hidden !important;
 }
 
-#slanted-year-header{
-  padding: 10px !important;
+#slanted-header-year{
+  margin: 0px !important;
   border-top: thin solid gray !important;
-  border-spacing: 0 !important;
+  padding: 0 !important;
+}
+
+#slanted-header-brand{
+  margin: 0px !important;
+  border-top: thin solid gray !important;
+  padding: 0 !important;
+}
+
+#slanted-header-color{
+  margin: 0px !important;
+  border-top: thin solid gray !important;
+  padding: 0 !important;
 }

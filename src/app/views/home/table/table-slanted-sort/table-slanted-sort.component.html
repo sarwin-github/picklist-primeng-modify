@@ -10,7 +10,7 @@
 				[resizableColumns]="true">
 			        <ng-template pTemplate="header" let-columns>
 			            <tr>
-	                        <th rowspan="2" frozen="true"
+	                        <th rowspan="2"
 	                        	[pSortableColumn]="'vin'"
 	                        	(click)="removeHighlight()"
 								class="rotated-header p-table-sticky-column-group" pResizableColumn>
@@ -191,7 +191,7 @@
 				scrollHeight="335px"
 				>
 					<ng-template pTemplate="colgroup" let-columns>
-						<colgroup>
+						<colgroup frozen="true">
 							<col *ngFor="let col of columns" style="width:220px">
 						</colgroup>
 					</ng-template>

@@ -1,4 +1,4 @@
-
+<!-- TABLE 1 -->
 
 <div class="pt-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
@@ -56,7 +56,7 @@
 </div>
 
 
-
+<!-- TABLE 3 -->
 
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
@@ -125,7 +125,7 @@
 	</div>
 </div>
 
-
+<!-- TABLE 5 -->
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
 		<div class="col-11 py-5 mt-5 text-center">
@@ -149,7 +149,7 @@
 			            <th 
 			            *ngFor="let col of columns; let i = index;" 
 			            class="rotated-header"
-			            [id]="col.header === 'Year' ? 'slanted-year-header' : ''"
+			            [id]="'slanted-header-' + col.field"
 			            [pSortableColumn]="col.field"
 			            (click)="removeHighlight()" pResizableColumn>
 			            	<div class="rotated-header-decoration"></div>
