@@ -195,9 +195,10 @@
 							<col *ngFor="let col of columns" style="width:220px">
 						</colgroup>
 					</ng-template>
-			        <ng-template pTemplate="header"  frozen="true" let-columns>
+			        <ng-template pTemplate="header" let-columns>
 			            <tr>
-	                        <th rowspan="2" 
+	                        <th rowspan="2" frozen="true"
+	                        	style="border-top: solid 1px gray !important;"
 	                        	[pSortableColumn]="'vin'"
 	                        	(click)="removeHighlight()"
 	                        	class="rotated-header" >
