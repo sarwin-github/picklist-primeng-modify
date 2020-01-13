@@ -61,7 +61,6 @@
 
 .rotated-header  {
     @extend .noselect;
-
     position: relative;
     height: 80px;
 
@@ -143,6 +142,7 @@
 }
 
 
+
 .ui-table .ui-table-thead {
   & > tr > th {
     // border: none !important;
@@ -151,15 +151,21 @@
       outline: none;
     }
   }
+
   & > tr > th.rotated-header .rotated-header-decoration {
     border-left: none !important;
   }
+
   & > tr:first-child > th.rotated-header:first-child {
     background: #fafafa !important;
     .rotated-header-decoration {
       border-left: 1px solid gray !important;
     }
   }  
+}
+
+.add-border{
+  border-top: solid 1px gray !important;
 }
 
 .ui-datatable-scrollable-theadclone {
@@ -297,3 +303,8 @@
   overflow-x: hidden !important;
 }
 
+#slanted-year-header{
+  padding: 10px !important;
+  border-top: thin solid gray !important;
+  border-spacing: 0 !important;
+}

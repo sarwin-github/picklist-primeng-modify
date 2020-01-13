@@ -3,7 +3,7 @@
 <div class="pt-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
 		<div class="col-11 py-5 px-3 text-center">
-			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Sticky, Selectable</h5>
+			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Sticky, Single Selection</h5>
 
 			<p-table class="p-table-sticky"
 				[value]="cars" 
@@ -60,7 +60,7 @@
 
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
-		<div class="col-11 py-5 text-center">
+		<div class="col-11 py-5 mt-5 text-center">
 			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Pagination, Edit</h5>
 
 			<p-table
@@ -128,14 +128,14 @@
 
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
-		<div class="col-11 py-5 text-center">
+		<div class="col-11 py-5 mt-5 text-center">
 			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Edit, Frozen Column</h5>
 
 			<p-table
 				[value]="cars2" 
 				[columns]="scrollableCols" 
 				[scrollable]="true" 
-				[(selection)]="selectedCar2"
+				[(selection)]="selectedCar"
 				[frozenColumns]="frozenCols" 
 				frozenWidth="220px"
 				scrollHeight="335px">
@@ -146,8 +146,10 @@
 				</ng-template>
 			    <ng-template pTemplate="header" let-columns>
 			        <tr>
-			            <th *ngFor="let col of columns" 
-			            class="rotated-header" 
+			            <th 
+			            *ngFor="let col of columns; let i = index;" 
+			            class="rotated-header"
+			            [id]="col.header === 'Year' ? 'slanted-year-header' : ''"
 			            [pSortableColumn]="col.field"
 			            (click)="removeHighlight()" pResizableColumn>
 			            	<div class="rotated-header-decoration"></div>
@@ -155,7 +157,6 @@
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
 			                    {{col.header}}
 			                </div>
-			                
 			            </th>
 			        </tr>
 			    </ng-template>

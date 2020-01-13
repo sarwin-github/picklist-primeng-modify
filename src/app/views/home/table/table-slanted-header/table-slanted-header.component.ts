@@ -15,7 +15,7 @@ export class TableSlantedHeaderComponent implements OnInit {
 	  public cars: Car[];
     public cars2: Car[];
     public selectedCar: Car;
-
+    
     public cols: any[];
     public slanted: boolean;
     public brands: SelectItem[];

@@ -10,7 +10,7 @@
 				[resizableColumns]="true">
 			        <ng-template pTemplate="header" let-columns>
 			            <tr>
-	                        <th rowspan="2" 
+	                        <th rowspan="2" frozen="true"
 	                        	[pSortableColumn]="'vin'"
 	                        	(click)="removeHighlight()"
 								class="rotated-header p-table-sticky-column-group" pResizableColumn>
@@ -87,7 +87,7 @@
 <!-- Table 4 -->
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
-		<div class="col-10 py-2 px-3 text-center">
+		<div class="col-10 py-2 px-3 mt-5 text-center">
 			<h5 class="text-muted m-0 mb-5 ml-5">Primeng Table With Slanted Header, Col Group, Sort, Multiple Selection, Scroll</h5>
 			
 			<p-table
@@ -174,7 +174,7 @@
 
 <!-- Table 6 -->
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
-	<div class="row">
+	<div class="row mt-5">
 		<div class="col-10 py-2 mt-5 px-3 text-center">
 			<h5 class="text-muted m-0 mb-5 ml-5">Primeng Table With Slanted Header, Col Group, Sort, Multiple Selection, Scroll, Frozen Column</h5>
 			
@@ -216,7 +216,7 @@
 	                        </th>
 	                    </tr>
 	                    <tr>
-	                    	<th *ngFor="let col of colGroupItem" 
+	                    	<th *ngFor="let col of columns" 
 	                    		[pSortableColumn]="col.field"
 	                        	(click)="removeHighlight()"
 	                        	class="rotated-header" width="70px">
