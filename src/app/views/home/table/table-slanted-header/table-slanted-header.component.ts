@@ -12,14 +12,15 @@ import { SelectItem } from 'primeng/api';
   styleUrls: ['./table-slanted-header.component.scss']
 })
 export class TableSlantedHeaderComponent implements OnInit {
-	public cars: Car[];
+	  public cars: Car[];
     public cars2: Car[];
+    public selectedCar: Car;
+
     public cols: any[];
-
     public slanted: boolean;
-
     public brands: SelectItem[];
     public clonedCars: { [s: string]: Car; } = {};
+    
 
   	constructor(private carService: CarService,
         private renderer: Renderer) { }

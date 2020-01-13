@@ -15,8 +15,9 @@ import { SelectItem } from 'primeng/api';
 export class TableSlantedSortComponent implements OnInit {
 	public cars: Car[];
     public cars2: Car[];
-    public cols: any[];
+    public selectedCar: Car[];
 
+    public cols: any[];
     public slanted: boolean;
     public brands: SelectItem[];
     public clonedCars: { [s: string]: Car; } = {};
