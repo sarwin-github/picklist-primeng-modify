@@ -18,6 +18,7 @@ export class TableSlantedSortComponent implements OnInit {
     public selectedCar: Car[];
 
     public cols: any[];
+    public colGroupItem: any[];
     public slanted: boolean;
     public brands: SelectItem[];
     public clonedCars: { [s: string]: Car; } = {};
@@ -61,6 +62,18 @@ export class TableSlantedSortComponent implements OnInit {
 
         this.frozenCols = [
             { field: 'vin', header: 'Vin', width: '40px' }
+        ];
+
+        this.colGroupItem = [
+            { field: 'year', header: 'Year', width: '40px' },
+            { field: 'brand', header: 'Brand', width: '40px' },
+            { field: 'color', header: 'Color', width: '40px' }
+        ];
+
+        this.scrollableCols = [
+            { field: 'year', header: 'Year', width: '40px' },
+            { field: 'brand', header: 'Brand', width: '40px' },
+            { field: 'color', header: 'Color', width: '40px' },
         ];
 
         this.frozenCars = [
