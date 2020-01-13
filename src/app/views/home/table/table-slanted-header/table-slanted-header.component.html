@@ -166,28 +166,10 @@
 			            pEditableColumn  
 			            class="ui-resizable-column">
 			            	<!-- NORMAL INPUT -->
-			                <p-cellEditor *ngIf="col.field !== 'brand'">
+			                <p-cellEditor>
 			                    <ng-template pTemplate="input">
 			                        <input pInputText type="text" 
 			                        [(ngModel)]="rowData[col.field]">
-			                    </ng-template>
-			                    <ng-template pTemplate="output">
-			                        {{rowData[col.field]}}
-			                    </ng-template>
-			                </p-cellEditor>
-
-			                <!-- DROPDOWN INPUT -->
-			                <p-cellEditor *ngIf="col.field === 'brand'">
-			                    <ng-template pTemplate="input">
-			                        <div class="form-group custom-dropdown">
-			                            <select class="form-control" 
-			                            	style="cursor: pointer !important;"
-			                            	[(ngModel)]="car[col.field]">
-			                            	<option *ngFor="let brands of brands">
-			                            		<span>{{brands.label}}</span>
-			                            	</option>
-			                            </select>
-			                        </div>
 			                    </ng-template>
 			                    <ng-template pTemplate="output">
 			                        {{rowData[col.field]}}

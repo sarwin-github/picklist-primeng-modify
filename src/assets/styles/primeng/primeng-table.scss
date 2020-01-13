@@ -320,3 +320,12 @@
   border-top: thin solid gray !important;
   padding: 0 !important;
 }
+
+.ui-datatable .ui-datatable-scrollable-theadclone > tr > th {
+border: 1px solid transparent;
+border-top-style: hidden;
+}
+
+.ui-datatable-scrollable-theadclone {
+  visibility: hidden;
+}

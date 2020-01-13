@@ -195,7 +195,7 @@
 							<col *ngFor="let col of columns" style="width:220px">
 						</colgroup>
 					</ng-template>
-			        <ng-template pTemplate="header" let-columns>
+			        <ng-template pTemplate="header"  frozen="true" let-columns>
 			            <tr>
 	                        <th rowspan="2" 
 	                        	[pSortableColumn]="'vin'"
