@@ -146,14 +146,14 @@
 				</ng-template>
 			    <ng-template pTemplate="header" let-columns>
 			        <tr>
-			            <th 
+			            <th [id]="'slanted-header-' + col.field"
 			            *ngFor="let col of columns; let i = index;" 
 			            class="rotated-header"
-			            [id]="'slanted-header-' + col.field"
 			            [pSortableColumn]="col.field"
 			            (click)="removeHighlight()">
-			            	<div class="rotated-header-decoration"></div>
-			                <div class="rotated-header-text"> 
+			            	<div class="rotated-header-decoration" 
+			            	></div>
+			                <div class="rotated-header-text" [id]="'slanted-text-' + col.field"> 
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
 			                    {{col.header}}
 			                </div>

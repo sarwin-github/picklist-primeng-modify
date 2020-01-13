@@ -237,7 +237,6 @@
   position: sticky !important;
   top: 0px !important;
   z-index: 1;
-
 }
 
 .p-table-sticky-column-group-item{
@@ -258,25 +257,6 @@
 
   }
 }
-
-.table-body{
-  table{
-    width: 100% !important;
-  }
-
-  tbody {
-    display: block;
-    height: 335px;
-    overflow: auto;
-  }
-
-  thead, tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;/* even columns width , fix width of table too*/
-  }
-}
-
 
 .custom-dropdown{
   width: 95%;
@@ -303,6 +283,16 @@
   overflow-x: hidden !important;
 }
 
+/*
+#slanted-header-vin #slanted-text-vin{
+   z-index: 9999 !important;
+   outline: 1px solid gray !important;
+   border: 1px solid gray !important;
+   position: relative !important;
+}
+*/
+
+
 #slanted-header-year{
   margin: 0px !important;
   border-top: thin solid gray !important;
@@ -321,11 +311,21 @@
   padding: 0 !important;
 }
 
-.ui-datatable .ui-datatable-scrollable-theadclone > tr > th {
-border: 1px solid transparent;
-border-top-style: hidden;
-}
 
-.ui-datatable-scrollable-theadclone {
-  visibility: hidden;
+.table-body{
+  table{
+    width: 100% !important;
+  }
+
+  tbody {
+    display: block;
+    height: 335px;
+    overflow: auto;
+  }
+
+  thead, tbody tr {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important;/* even columns width , fix width of table too*/
+  }
 }

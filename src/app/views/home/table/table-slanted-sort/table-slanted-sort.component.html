@@ -90,20 +90,12 @@
 		<div class="col-10 py-2 px-3 mt-5 text-center">
 			<h5 class="text-muted m-0 mb-5 ml-5">Primeng Table With Slanted Header, Col Group, Sort, Multiple Selection, Scroll</h5>
 			
-			<p-table
+			<p-table class="table-body"
 				[columns]="cols" 
 				[value]="cars2"
-				[scrollable]="true" 
-				[style]="{maxWidth:'700px'}" 
 				selectionMode="multiple" 
 				[(selection)]="selectedCar"
-				scrollHeight="335px"
 				>
-					<ng-template pTemplate="colgroup" let-columns>
-						<colgroup>
-							<col *ngFor="let col of columns" style="width:220px">
-						</colgroup>
-					</ng-template>
 			        <ng-template pTemplate="header" let-columns>
 			            <tr>
 	                        <th rowspan="2" 
@@ -137,7 +129,7 @@
 			                </th>
 	                    </tr>
 			        </ng-template>
-			        <ng-template pTemplate="body" 
+			        <ng-template pTemplate="body"  class="table-body"
 				        let-rowData let-columns="columns" 
 				        let-rowIndex="rowIndex">
 			            <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
@@ -149,21 +141,21 @@
 
 			        <!-- SELECTED -->
 	        	    <ng-template pTemplate="summary">
-	                    <div class="selected-div">
-	                    	<h6 class="mt-3 text-left" *ngIf="selectedCar">Selected Cars</h6>
-	                    	<div class="row px-4" *ngFor="let selectedCar of selectedCar; let i = index;">
-	                    		<div class="col-12"><hr></div>
-	                    		<div class="col-11 p-0" class="text-left">
+	                    <div class="selected-div pr-0 mr-0">
+	                    	<h6 class="mt-3 text-left" *ngIf="selectedCar && selectedCar?.length > 0">Selected Cars</h6>
+	                    	<div class="row pl-4 pr-0 mr-0" 
+	                    	*ngFor="let selectedCar of selectedCar; let i = index;">
+	                    		<div class="col-12 pr-0 mr-0"><hr></div>
+	                    		<div class="col-11 p-0 pr-0 mr-0" class="text-left">
 	                    		    <span class="mt-3">
 	                    		    	{{selectedCar ? selectedCar.vin + ' - ' + selectedCar.brand + ' - ' + selectedCar.year + ' - ' + selectedCar.color: 'none'}}
 	                    		    </span>
 	                    		</div>
 
-	                    		<div class="col-1 pl-2" *ngIf="selectedCar">
+	                    		<div class="col-1 pl-2 pr-0 mr-0" *ngIf="selectedCar">
 	                    			<div style="width:20px; height:20px;border:1px solid #000;" 
 	                    			[ngStyle]="{'background': selectedCar.color}"></div>
 	                    		</div>
-
 	                    	</div>
 	                    </div>
 	                </ng-template>
