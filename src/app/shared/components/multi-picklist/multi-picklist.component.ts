@@ -21,7 +21,7 @@ export class MultiPickListComponent implements AfterContentInit {
   public itemTemplate: TemplateRef<any>;
   public dragging: boolean;
   public fromList: number = -1;
-  public toList: number = -1;
+  public toList: number = 1;
   public from: number;
   public to: number;
   public onDropPoint: boolean = true;
@@ -55,8 +55,7 @@ export class MultiPickListComponent implements AfterContentInit {
   onDragLeave(event: DragEvent, list: number) {
     if (this.debug) console.log('leave');
     this.onDropPoint = true;
-    this.to = null;
-    this.from = null;
+    this.to = -1;
   }
 
   // after item have been dropped
@@ -70,9 +69,6 @@ export class MultiPickListComponent implements AfterContentInit {
       list2.splice(this.to, 0, del[0]);
       if(list2[index]){
         list2[index].type = this.types[this.toList];
-        console.log(list, this.fromList, this.toList)
-        this.height[this.toList] -= 50
-        this.height[this.fromList] += 50;
       }
 
       this.fromList = -1;
