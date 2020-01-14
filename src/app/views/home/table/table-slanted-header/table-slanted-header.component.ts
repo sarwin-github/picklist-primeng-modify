@@ -18,6 +18,11 @@ export class TableSlantedHeaderComponent implements OnInit {
     
     public cols: any[];
     public slanted: boolean;
+    public sticky: boolean; 
+
+    public slanted2: boolean;
+    public slanted3: boolean;
+
     public brands: SelectItem[];
     public clonedCars: { [s: string]: Car; } = {};
     public frozenCols: any[];
@@ -70,6 +75,10 @@ export class TableSlantedHeaderComponent implements OnInit {
         ];
 
         this.slanted = true;
+        this.sticky = true;
+
+        this.slanted2 = true;
+        this.slanted3 = true;
     }
 
     // remove highlight

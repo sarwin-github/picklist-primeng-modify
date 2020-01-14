@@ -21,7 +21,14 @@ export class TableSlantedSortComponent implements OnInit {
 
     public cols: any[];
     public colGroupItem: any[];
+    
     public slanted: boolean;
+    public sticky: boolean; 
+    public scrollable: boolean;
+
+    public slanted2: boolean;
+    public slanted3: boolean;
+
     public brands: SelectItem[];
     public clonedCars: { [s: string]: Car; } = {};
     public virtualCars: Car[];
@@ -85,6 +92,9 @@ export class TableSlantedSortComponent implements OnInit {
         ];
 
         this.slanted = true;
+        this.scrollable = true;
+        this.sticky = true;
+
         this.totalRecords = 100;
         this.loading = true;
     }

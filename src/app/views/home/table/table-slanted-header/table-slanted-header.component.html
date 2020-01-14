@@ -5,7 +5,10 @@
 		<div class="col-11 py-5 px-3 text-center">
 			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Sticky, Single Selection</h5>
 
-			<p-table class="p-table-sticky"
+			<p-table 
+				[ngClass]="{ 
+					'rotate': slanted ? 'rotate' : '', 
+					'p-table-sticky': sticky ? 'p-table-sticky' : '' }"
 				[value]="cars" 
 				[resizableColumns]="true"
 				selectionMode="single" 
@@ -68,6 +71,7 @@
 			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Pagination, Editable</h5>
 
 			<p-table
+				[ngClass]="{ 'rotate': slanted ? 'rotate' : '' }"
 				[value]="cars2" 
 				[paginator]="true"
 				[rows]="10"
@@ -141,6 +145,7 @@
 			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Editable, Frozen Column</h5>
 
 			<p-table
+				[ngClass]="{ 'rotate': slanted ? 'rotate' : '' }"
 				[value]="cars2" 
 				[columns]="scrollableCols" 
 				[scrollable]="true" 
