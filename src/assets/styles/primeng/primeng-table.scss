@@ -25,12 +25,17 @@
   transform-origin: 0 100% !important;
 
   &-text {
-      @extend .rotated-header-text-main;
+    @extend .rotated-header-text-main;
+    display: inline-block !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
   }
   &-text-main {
     position: absolute;
     display: flex;
-    align-items: center;
+    text-align: left !important;
     bottom: 0;
     right: 0;
     left: 0;
