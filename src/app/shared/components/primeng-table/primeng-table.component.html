@@ -9,7 +9,7 @@
 					'p-table-sticky': sticky ? 'p-table-sticky' : '' }"
 				[value]="rowData"
 				[resizableColumns]="resizable ? true : false"
-				[selectionMode]="selectionMode" 
+				[selectionMode]="selectable ? selectionMode : ''" 
 				[(selection)]="selected" 
 				[dataKey]="datakey"
 				>
@@ -41,6 +41,7 @@
 			    </ng-template>
 	
 			    <ng-template pTemplate="summary">
+			    	<!-- SINGLE SELECTION -->
 		            <div class="row px-4" *ngIf="selectionMode === 'single'">
 		            	<div class="col-11 p-0" class="text-left">
 		            	    <span class="mt-3">
@@ -54,6 +55,7 @@
 		            	</div>
 		            </div>
 
+		            <!-- MULTIPLE SELECTION -->
 		            <div class="selected-div pr-0 mr-0" *ngIf="selectionMode === 'multiple'">
 		            	<h6 class="mt-3 text-left" *ngIf="selected && selected?.length > 0">Selected Items</h6>
 		            	<div class="row pl-4 pr-0 mr-0" 
