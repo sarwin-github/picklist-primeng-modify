@@ -23,6 +23,10 @@ export class TableSlantedHeaderComponent implements OnInit {
     public frozenCols: any[];
     public scrollableCols: any[];
 
+    public headerHeight: number = 120;
+    public headerHeight2: number = 80;
+    public headerHeight3: number = 80;
+
   	constructor(private carService: CarService,
         private renderer: Renderer) { }
 
@@ -36,7 +40,7 @@ export class TableSlantedHeaderComponent implements OnInit {
         });
 
         this.cols = [
-            { field: 'vin', header: 'Vin', width: '40px' },
+            { field: 'vin', header: 'A Very Long Header Column Here', width: '40px' },
             { field: 'year', header: 'Year', width: '40px' },
             { field: 'brand', header: 'Brand', width: '40px' },
             { field: 'color', header: 'Color', width: '40px' }
