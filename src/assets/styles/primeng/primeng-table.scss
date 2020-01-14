@@ -26,6 +26,11 @@
 
   &-text {
       @extend .rotated-header-text-main;
+      display: inline-block !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
   }
   &-text-main {
     position: absolute;
@@ -34,10 +39,10 @@
     bottom: 0;
     right: 0;
     left: 0;
+    text-align: left !important;
     transform: translate(50%, 50%) skewX(45deg) rotate(-45deg);
     transform-origin: 0% 50%;
     padding-left: 1em;
-    width: 100px;
   }
 
   &-decoration {

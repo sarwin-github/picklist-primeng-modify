@@ -16,13 +16,17 @@
 			            <th *ngFor="let col of cols" 
 			            class="rotated-header" 
 			            [pSortableColumn]="col.field"
-			            (click)="removeHighlight()" pResizableColumn>
+			            (click)="removeHighlight()" 
+			            [ngStyle]="{height: headerHeight + 'px'}"
+			            pResizableColumn>
 			            	<div class="rotated-header-decoration"></div>
-			                <div class="rotated-header-text"> 
+			                <div class="rotated-header-text" 
+			                	pTooltip="{{col.header}}" 
+			                	tooltipPosition="top"
+			                	[ngStyle]="{width: headerHeight + 20 + 'px'}"> 
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
 			                    {{col.header}}
 			                </div>
-			                
 			            </th>
 			        </tr>
 			    </ng-template>
@@ -67,19 +71,24 @@
 				[value]="cars2" 
 				[paginator]="true"
 				[rows]="10"
-				[rowsPerPageOptions]="[10,15,20,25]" [resizableColumns]="true">
+				[rowsPerPageOptions]="[10,15,20,25]" 
+				[resizableColumns]="true">
 			    <ng-template pTemplate="header">
 			        <tr>
 			            <th *ngFor="let col of cols" 
 			            class="rotated-header" 
+			            [ngStyle]="{height: headerHeight2 + 'px'}"
 			            [pSortableColumn]="col.field"
-			            (click)="removeHighlight()" pResizableColumn>
+			            (click)="removeHighlight()" 
+			            pResizableColumn>
 			            	<div class="rotated-header-decoration"></div>
-			                <div class="rotated-header-text"> 
+			                <div class="rotated-header-text"
+			                	pTooltip="{{col.header}}" 
+			                	tooltipPosition="top"
+			                	[ngStyle]="{width: headerHeight2 + 20 + 'px'}"> 
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
 			                    {{col.header}}
 			                </div>
-			                
 			            </th>
 			        </tr>
 			    </ng-template>
@@ -149,18 +158,22 @@
 			            <th [id]="'slanted-header-' + col.field"
 			            *ngFor="let col of columns; let i = index;" 
 			            class="rotated-header"
+			            [ngStyle]="{height: headerHeight3 + 'px'}"
 			            [pSortableColumn]="col.field"
 			            (click)="removeHighlight()">
 			            	<div class="rotated-header-decoration" 
 			            	[id]="'slanted-div-' + col.field"></div>
-			                <div class="rotated-header-text" [id]="'slanted-text-' + col.field"> 
+			                <div class="rotated-header-text" 
+			                [id]="'slanted-text-' + col.field"> 
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
 			                    {{col.header}}
 			                </div>
 			            </th>
 			        </tr>
 			    </ng-template>
-			    <ng-template pTemplate="body" let-rowData let-columns="columns">
+			    <ng-template pTemplate="body" 
+				    let-rowData 
+				    let-columns="columns">
 			        <tr>
 			            <td *ngFor="let col of columns"
 			            pEditableColumn  
