@@ -25,3 +25,41 @@ app-home > div > div > div {
 	margin-bottom: 400px;
 }
 
+#slanted-div-vin #slanted-div-text{
+  z-index: 99999;
+  .rotated-header-decoration{
+  	z-index: 888888 !important;
+  }
+  
+}
+
+#slanted-header-vin{
+  z-index: 99999;
+  //border-top: 2px solid gray !important;
+  
+}
+
+
+.ui-table-frozen-view{
+	z-index: 99999;
+	th{
+		z-index: 99999;
+	}
+	div{
+		z-index: 99999;
+	}
+}
+
+.ui-table-unfrozen-view{
+	z-index: 1 !important;
+	tr th td{
+		z-index: 1 !important;
+	}
+	div{
+		z-index: 1 !important;
+	}
+}
+
+.ui-table-scrollable-view .ui-table-frozen-view{
+	background-color: unset !important;
+}

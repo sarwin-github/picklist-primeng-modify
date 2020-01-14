@@ -38,9 +38,10 @@
             <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item, index: i}">
             </ng-container>
           </li>
-          <li style="height: 50px; overflow-y: hidden;"
+          <!-- [ngStyle]="{ 'height': height[i]+'px' }" -->
+          <li 
             *ngIf="dragdrop&&l"
-            class="ui-picklist-droppoint"
+            class="ui-picklist-droppoint-last"
             (dragover)="onDragOver($event, index, i + 1)"
             (dragleave)="onDragLeave($event, index)"
             (drop)="onDrop($event, index, i + 1)"
