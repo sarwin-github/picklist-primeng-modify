@@ -28,6 +28,7 @@ export class MultiPickListComponent implements AfterContentInit {
   public debug: boolean = true;
   public dragdrop: boolean = true;
   public types: string[] = ['non-requested', 'recommend', 'mandatory']
+  public height: number[] = [55, 190, 145, 50];
 
   constructor(private elRef: ElementRef, private renderer: Renderer){}
 
@@ -54,7 +55,8 @@ export class MultiPickListComponent implements AfterContentInit {
   onDragLeave(event: DragEvent, list: number) {
     if (this.debug) console.log('leave');
     this.onDropPoint = true;
-    this.to = -1;
+    this.to = null;
+    this.from = null;
   }
 
   // after item have been dropped
@@ -66,8 +68,12 @@ export class MultiPickListComponent implements AfterContentInit {
     if (this.onDropPoint) {
       const del = list1.splice(this.from, 1);
       list2.splice(this.to, 0, del[0]);
-      if(list2[index])
+      if(list2[index]){
         list2[index].type = this.types[this.toList];
+        console.log(list, this.fromList, this.toList)
+        this.height[this.toList] -= 50
+        this.height[this.fromList] += 50;
+      }
 
       this.fromList = -1;
       this.toList = -1;

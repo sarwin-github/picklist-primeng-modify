@@ -8,14 +8,14 @@
 }
 
 .ui-resizable-column{
-  background: none !important;
-  border-top: 1px solid gray !important;
+  //background: none !important;
+  //border-top: 1px solid gray !important;
 }
 
 .wrap {
-    overflow: hidden !important;
-    padding: 30px !important;
-    background: #fff !important;
+    //overflow: hidden !important;
+    //padding: 30px !important;
+    //background: #fff !important;
 }
 
 .rotated-header-text-main {
@@ -215,7 +215,7 @@
 }
 
 .p-table-sticky-column-group-main{
-  background-color: unset !important;
+  background-color: white !important;
   position: -webkit-sticky !important;
   position: sticky !important;
   top: 0px !important;
@@ -266,16 +266,22 @@
   overflow-x: hidden !important;
 }
 
-/*
-#slanted-header-vin #slanted-text-vin{
-   z-index: 9999 !important;
-   outline: 1px solid gray !important;
-   border: 1px solid gray !important;
-   position: relative !important;
+#slanted-header-year #slanted-div-year{
+  z-index: 1 !important;
 }
-*/
 
+#slanted-header-brand #slanted-div-brand{
+ z-index: 1 !important;
+}
 
+#slanted-header-color #slanted-div-color{
+  z-index: 1 !important;
+}
+.ui-table-scrollable-header-box{
+  z-index: 1;
+}
+
+/**/
 #slanted-header-year{
   margin: 0px !important;
   border-top: thin solid gray !important;

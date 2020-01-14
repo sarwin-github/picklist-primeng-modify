@@ -137,11 +137,11 @@
 				[scrollable]="true" 
 				[(selection)]="selectedCar"
 				[frozenColumns]="frozenCols" 
-				frozenWidth="220px"
+				frozenWidth="200px"
 				scrollHeight="335px">
 				<ng-template pTemplate="colgroup" let-columns>
 					<colgroup>
-						<col *ngFor="let col of columns" style="width:220px">
+						<col *ngFor="let col of columns" style="width:200px">
 					</colgroup>
 				</ng-template>
 			    <ng-template pTemplate="header" let-columns>
@@ -152,7 +152,7 @@
 			            [pSortableColumn]="col.field"
 			            (click)="removeHighlight()">
 			            	<div class="rotated-header-decoration" 
-			            	></div>
+			            	[id]="'slanted-div-' + col.field"></div>
 			                <div class="rotated-header-text" [id]="'slanted-text-' + col.field"> 
 			                    <p-sortIcon [field]="col.field"></p-sortIcon>
 			                    {{col.header}}
