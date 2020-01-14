@@ -17,6 +17,7 @@
 				[headerHeight]: Height : number
 			 -->
 
+			<!-- REUSABLE PRIMENG TABLE, Just change the flags to modify -->
 			<app-primeng-table 
 				*ngIf="cars && cars.length > 0"
 				[columns]="cols"
@@ -26,7 +27,7 @@
 				[resizable]="true"
 				[selectable]="true"
 				[selectionMode]="'single'"
-				[editable]="false"
+				[editable]="true"
 				[datakey]="'vin'"
 				[headerHeight]="headerHeight">
 			</app-primeng-table>
