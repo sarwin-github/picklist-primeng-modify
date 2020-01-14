@@ -32,10 +32,22 @@
 			            </th>
 			        </tr>
 			    </ng-template>
+
 			    <ng-template pTemplate="body" let-item>
 			        <tr [pSelectableRow]="item">
 			            <td *ngFor="let col of columns" class="ui-resizable-column">
 			                {{item[col.field]}}
+
+			                <!-- NORMAL INPUT -->
+			                <p-cellEditor *ngIf="editable">
+			                    <ng-template pTemplate="input">
+			                        <input pInputText type="text" 
+			                        [(ngModel)]="car[col.field]">
+			                    </ng-template>
+			                    <ng-template pTemplate="output">
+			                        {{item[col.field]}}
+			                    </ng-template>
+			                </p-cellEditor>
 			            </td>
 			        </tr>
 			    </ng-template>
@@ -73,7 +85,6 @@
 		            		</div>
 		            	</div>
 		            </div>
-
 		        </ng-template>
 			</p-table>
 		</div>

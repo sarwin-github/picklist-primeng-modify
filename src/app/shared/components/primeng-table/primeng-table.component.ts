@@ -20,6 +20,7 @@ export class PrimengTableComponent implements OnInit {
 	@Input() selectionMode: any;
 	@Input() headerHeight: string;
 	@Input() resizable: boolean;
+	@Input() editable: boolean = false;
 
 	public selected: any;
 	    constructor(private renderer: Renderer) { 

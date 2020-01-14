@@ -11,7 +11,8 @@
 				[sticky]: Sticky headers : boolean
 				[resizable]: Resizable columns headers: boolean
 				[selectable]: Selectable : boolean
-				[selection]: Selection Data
+				[selectionMode]: Type of Selection for Table
+				[editable]: Editable : boolean 
 				[selectionType]: Selection Type (still has limitation) : string
 				[headerHeight]: Height : number
 			 -->
@@ -24,7 +25,8 @@
 				[sticky]="true"
 				[resizable]="true"
 				[selectable]="true"
-				[selectionMode]="'multiple'"
+				[selectionMode]="'single'"
+				[editable]="false"
 				[datakey]="'vin'"
 				[headerHeight]="headerHeight">
 			</app-primeng-table>
