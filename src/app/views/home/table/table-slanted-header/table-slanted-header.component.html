@@ -1,63 +1,33 @@
 <!-- TABLE 1 -->
-
 <div class="pt-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
 		<div class="col-11 py-5 px-3 text-center">
-			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Sticky, Single Selection</h5>
+			<h5 class="text-muted m-0">Primeng Table with Slanted Header, Sort, Resize, Sticky, Single Selection</h5>
 
-			<p-table 
-				[ngClass]="{ 
-					'rotate': slanted ? 'rotate' : '', 
-					'p-table-sticky': sticky ? 'p-table-sticky' : '' }"
-				[value]="cars" 
-				[resizableColumns]="true"
-				selectionMode="single" 
-				[(selection)]="selectedCar" 
-				dataKey="vin">
-			    <ng-template pTemplate="header">
-			        <tr >
-			            <th *ngFor="let col of cols" 
-			            class="rotated-header" 
-			            [pSortableColumn]="col.field"
-			            (click)="removeHighlight()" 
-			            [ngStyle]="{height: headerHeight + 'px'}"
-			            pResizableColumn>
-			            	<div class="rotated-header-decoration"></div>
-			                <div class="rotated-header-text" 
-			                	pTooltip="{{col.header}}" 
-			                	tooltipPosition="top"
-			                	[ngStyle]="{width: headerHeight + 20 + 'px'}"> 
-			                    <p-sortIcon [field]="col.field"></p-sortIcon>
-			                    {{col.header}}
-			                </div>
-			            </th>
-			        </tr>
-			    </ng-template>
-			    <ng-template pTemplate="body" let-car>
-			        <tr [pSelectableRow]="car">
-			            <td *ngFor="let col of cols"  class="ui-resizable-column">
-			                    {{car[col.field]}}
-			            </td>
-			        </tr>
-			    </ng-template>
+			 <!-- 
+			 	[columns] : List of column header : array of object
+				[itemList]: List of rows : array of object
+				[slanted]: Slanted headers : boolean
+				[sticky]: Sticky headers : boolean
+				[resizable]: Resizable columns headers: boolean
+				[selectable]: Selectable : boolean
+				[selection]: Selection Data
+				[selectionType]: Selection Type (still has limitation) : string
+				[headerHeight]: Height : number
+			 -->
 
-			    <ng-template pTemplate="summary">
-		            <div class="row px-4">
-		            	<div class="col-11 p-0" class="text-left">
-		            	    <span class="mt-3">
-		            	    	Selected Car: {{selectedCar ? selectedCar.vin + ' - ' + selectedCar.brand + ' - ' + selectedCar.year + ' - ' + selectedCar.color: 'none'}}
-		            	    </span>
-		            	</div>
-
-		            	<div class="col-1 pl-2" *ngIf="selectedCar">
-		            		<div style="width:20px; height:20px;border:1px solid #000;" 
-		            		[ngStyle]="{'background': selectedCar.color}"></div>
-		            	</div>
-		            </div>
-
-		        </ng-template>
-			</p-table>
-			
+			<app-primeng-table 
+				*ngIf="cars && cars.length > 0"
+				[columns]="cols"
+				[itemList]="cars"
+				[slanted]="true"
+				[sticky]="true"
+				[resizable]="true"
+				[selectable]="true"
+				[selectionMode]="'single'"
+				[datakey]="'vin'"
+				[headerHeight]="headerHeight">
+			</app-primeng-table>
 		</div>
 	</div>
 </div>

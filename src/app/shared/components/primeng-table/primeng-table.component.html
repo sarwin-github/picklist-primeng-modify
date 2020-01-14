@@ -1,0 +1,79 @@
+
+<div class="pt-5" 
+	*ngIf="rowData && rowData.length > 0">
+	<div class="row">
+		<div class="col-11 px-3 text-center">
+			<p-table
+				[ngClass]="{ 
+					'rotate': slanted ? 'rotate' : '', 
+					'p-table-sticky': sticky ? 'p-table-sticky' : '' }"
+				[value]="rowData"
+				[resizableColumns]="resizable ? true : false"
+				[selectionMode]="selectionMode" 
+				[(selection)]="selected" 
+				[dataKey]="datakey"
+				>
+			    <ng-template pTemplate="header">
+			        <tr>
+			            <th *ngFor="let col of columns" 
+			            class="rotated-header" 
+			            [pSortableColumn]="col.field"
+			            (click)="removeHighlight()" 
+			            [ngStyle]="{height: headerHeight + 'px'}"
+			            pResizableColumn>
+			            	<div class="rotated-header-decoration"></div>
+			                <div class="rotated-header-text" 
+			                	pTooltip="{{col.header}}" 
+			                	tooltipPosition="top"
+			                	[ngStyle]="{width: headerHeight + 20 + 'px'}"> 
+			                    <p-sortIcon [field]="col.field"></p-sortIcon>
+			                    {{col.header}}
+			                </div>
+			            </th>
+			        </tr>
+			    </ng-template>
+			    <ng-template pTemplate="body" let-item>
+			        <tr [pSelectableRow]="item">
+			            <td *ngFor="let col of columns" class="ui-resizable-column">
+			                {{item[col.field]}}
+			            </td>
+			        </tr>
+			    </ng-template>
+	
+			    <ng-template pTemplate="summary">
+		            <div class="row px-4" *ngIf="selectionMode === 'single'">
+		            	<div class="col-11 p-0" class="text-left">
+		            	    <span class="mt-3">
+		            	    	Selected Item: {{selected ? selected.vin + ' - ' + selected.brand + ' - ' + selected.year + ' - ' + selected.color: 'none'}}
+		            	    </span>
+		            	</div>
+
+		            	<div class="col-1 pl-2" *ngIf="selected">
+		            		<div style="width:20px; height:20px;border:1px solid #000;" 
+		            		[ngStyle]="{'background': selected.color}"></div>
+		            	</div>
+		            </div>
+
+		            <div class="selected-div pr-0 mr-0" *ngIf="selectionMode === 'multiple'">
+		            	<h6 class="mt-3 text-left" *ngIf="selected && selected?.length > 0">Selected Items</h6>
+		            	<div class="row pl-4 pr-0 mr-0" 
+		            	*ngFor="let selected of selected; let i = index;">
+		            		<div class="col-12 pr-0 mr-0"><hr></div>
+		            		<div class="col-11 p-0 pr-0 mr-0" class="text-left">
+		            		    <span class="mt-3">
+		            		    	{{selected ? selected.vin + ' - ' + selected.brand + ' - ' + selected.year + ' - ' + selected.color: 'none'}}
+		            		    </span>
+		            		</div>
+
+		            		<div class="col-1 pl-2 pr-0 mr-0" *ngIf="selected">
+		            			<div style="width:20px; height:20px;border:1px solid #000;" 
+		            			[ngStyle]="{'background': selected.color}"></div>
+		            		</div>
+		            	</div>
+		            </div>
+
+		        </ng-template>
+			</p-table>
+		</div>
+	</div>
+</div>
