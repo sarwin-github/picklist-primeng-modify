@@ -1,3 +1,65 @@
+ <!-- 
+ 	===================================================
+ 	PLEASE READ - AVAILABLE INPUT FLAGS 
+ 	FOR <app-primeng-table> Selector or REUSABLE PRIMENG TABLE
+ 	===================================================
+
+		[columns]: List of column header : Array of object
+		[datakey]: Data Key if [selectable]="true" : String
+		[editable]: Editable, Set if row item is editable: Boolean 
+		[frozen]: Enable frozen column, PLEASE CHECK LIMITATIONS BELOW: Boolean
+		[frozenWidth]: Frozen Column Width per column: Number
+		[frozenColumn]: Frozen Column Header: Object
+		[headerHeight]: Height of header: number
+		[itemList]: List of rows : array of object
+		[paginator]: Set Paginator : Boolean
+		[rows]: Rows Per Page if [paginator]="true": Boolean
+		[rowsPerPageOptions]: Rows Per Page Option if [paginator]="true": Array of Number
+		[resizable]: Resizable columns headers: Boolean
+		[scrollable]: Allow scrolling of table with scrollable height
+		[scrollableHeight]: Allow scrolling of table with scrollable height
+		[selectable]: Selectable row : Boolean
+		[selectionMode]: Type of Selection for Table | single or multiple selection: String
+		[slanted]: Slanted headers : Boolean
+		[sticky]: Sticky headers : Boolean
+	
+	===================================================
+	NOTE: LIMITATION OF REUSABLE PRIMENG TABLE
+	===================================================
+		/----------------
+		IF YOU WILL USE SCROLL [scrollable]="true" 
+		DONT USE RESIZE, set [resizable]="false" (SCROLL DONT WORK WITH RESIZE COLUMN)
+		
+		/----------------
+		IF YOU WILL USE EDITABLE ROWS [editable]="true"
+		DONT USE SELECTABLE, set [selectable]="false" and other related flag 
+		[selectionMode]="'single'"
+		[datakey]="'vin'"
+		(YOU CANT SELECT A SINGLE ROW AND EDIT IT, YOU CAN ONLY SELECT 1 COLUMN PER ROW)
+
+		/----------------
+		FROZEN COLUMN IS NOT VERY COMPATIBLE WITH REUSABLE TABLE, 
+		FROZEN COLUMN MIGHT CRASH THE TABLE, CREATING CONFLICTS WITH OTHER FLAGS
+		
+		- ONLY USE THIS FLAGS WHILE USING FROZEN COLUMNS, RECHECK LIMITATION
+			[columns]="scrollableCols"
+			[datakey]="'vin'"
+			[editable]="false" 
+			[frozen]="true"
+			[frozenWidth]="200"
+			[frozenColumn]="frozenCols"
+			[headerHeight]="headerHeight"
+			[itemList]="cars2"
+			[paginator]="false"
+			[rows]="10"
+			[rowsPerPageOptions]="[10,15,20,25]" 
+			[scrollable]="false"
+			[selectable]="true"
+			[selectionMode]="'single'"
+			[slanted]="true"
+
+		/-----------------
+ -->
 
 <div class="pt-5" 
 	*ngIf="rowData && rowData.length > 0 && !frozen">
