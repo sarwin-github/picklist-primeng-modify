@@ -18,6 +18,23 @@
 				[rowsPerPageOptions]="rowsPerPageOptions" 
 				>
 			    <ng-template pTemplate="header">
+			    	<tr *ngIf="!scrollable && !resizable">
+			            <th *ngFor="let col of columns" 
+			            class="rotated-header" 
+			            [pSortableColumn]="col.field"
+			            (click)="removeHighlight()" 
+			            [ngStyle]="{height: headerHeight + 'px'}">
+			            	<div class="rotated-header-decoration"></div>
+			                <div class="rotated-header-text" 
+			                	pTooltip="{{col.header}}" 
+			                	tooltipPosition="top"
+			                	[ngStyle]="{width: headerHeight + 20 + 'px'}"> 
+			                    <p-sortIcon [field]="col.field"></p-sortIcon>
+			                    {{col.header}}
+			                </div>
+			            </th>
+			        </tr>
+
 			        <tr *ngIf="!scrollable && resizable">
 			            <th *ngFor="let col of columns" 
 			            class="rotated-header" 
@@ -82,7 +99,7 @@
 			        </tr>
 			    </ng-template>
 	
-			    <ng-template pTemplate="summary">
+			    <ng-template pTemplate="summary" *ngIf="selectable">
 			    	<!-- SINGLE SELECTION -->
 		            <div class="row px-4" *ngIf="selectionMode === 'single'">
 		            	<div class="col-11 p-0" class="text-left">

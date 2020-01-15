@@ -52,6 +52,10 @@
 				[selectionMode]="'single'"
 				[datakey]="'vin'"
 				(YOU CANT SELECT A SINGLE ROW AND EDIT IT, YOU CAN ONLY SELECT 1 COLUMN PER ROW)
+
+				/----------------
+				FROZEN COLUMN IS NOT COMPATIBLE WITH REUSABLE TABLE, FROZEN COLUMN MIGHT CRASH 
+				THE TABLE, CREATING CONFLICTS WITH OTHER FLAGS
 			 -->
 
 			<!-- REUSABLE PRIMENG TABLE, Just change the flags to modify -->
@@ -73,6 +77,24 @@
 				[sticky]="true"
 				>
 			</app-primeng-table>
+
+			<!-- Sample Reusable table using other flags
+			<app-primeng-table 
+				*ngIf="cars2 && cars2.length > 0"
+				[columns]="cols"
+				[datakey]="'vin'"
+				[editable]="true" 
+				[headerHeight]="headerHeight"
+				[itemList]="cars2"
+				[paginator]="true"
+				[rows]="10"
+				[rowsPerPageOptions]="[10,15,20,25]" 
+				[resizable]="false"
+				[scrollable]="false"
+				[slanted]="false"
+				[sticky]="false"
+				>
+			</app-primeng-table>-->
 		</div>
 	</div>
 </div>
