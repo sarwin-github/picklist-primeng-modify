@@ -134,39 +134,4 @@ export class TableSlantedSortComponent implements OnInit {
             return (event.order * result);
         });
     }
-
-    start: any = undefined;
-    pressed: boolean = false;
-    startX: any;
-    startWidth: any;
-    resizableFnMousemove:any;
-    resizableFnMouseup: any;
-
-    resizeTable(event: any, column: any) {
-      this.start = event.target;
-      this.pressed = true;
-      this.startX = event.pageX;
-      this.startWidth = this.start.clientWidth;
-      this.mouseMove(column);
-      console.log(column)
-    }
-
-    mouseMove(column: any) {
-      this.resizableFnMousemove = this.renderer.listen('document', 'mousemove', (event) => {
-        if (this.pressed) {
-          let width = this.startWidth + (event.pageX - this.startX);
-          let index = this.start.cellIndex;
-          column.width = width;
-        }
-      });
-
-
-      this.resizableFnMouseup = this.renderer.listen('document', 'mouseup', (event) => {
-        if (this.pressed) {
-          this.pressed = false;
-          this.resizableFnMousemove();
-          this.resizableFnMouseup();
-        }
-      });
-    };
 }
