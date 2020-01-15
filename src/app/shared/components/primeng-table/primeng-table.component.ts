@@ -26,9 +26,12 @@ export class PrimengTableComponent implements OnInit {
 	@Input() paginator: boolean;
 	@Input() rows: number = 0;
 	@Input() rowsPerPageOptions: number[] = [];
+	@Input() frozen: boolean;
+	@Input() frozenWidth: number;
+	@Input() frozenColumn: any = [];
 
 	public selected: any;
-	
+
     constructor(private renderer: Renderer) { 
     }
 

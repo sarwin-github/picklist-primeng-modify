@@ -1,62 +1,72 @@
+ <!-- 
+ 	===================================================
+ 	PLEASE READ - AVAILABLE INPUT FLAGS
+ 	===================================================
+
+	[columns]: List of column header : Array of object
+	[datakey]: Data Key if [selectable]="true" : String
+	[editable]: Editable, Set if row item is editable: Boolean 
+	[frozen]: Enable frozen column, PLEASE CHECK LIMITATIONS BELOW: Boolean
+	[frozenWidth]: Frozen Column Width per column: Number
+	[frozenColumn]: Frozen Column Header: Object
+	[headerHeight]: Height of header: number
+	[itemList]: List of rows : array of object
+	[paginator]: Set Paginator : Boolean
+	[rows]: Rows Per Page if [paginator]="true": Boolean
+	[rowsPerPageOptions]: Rows Per Page Option if [paginator]="true": Array of Number
+	[resizable]: Resizable columns headers: Boolean
+	[scrollable]: Allow scrolling of table with scrollable height
+	[scrollableHeight]: Allow scrolling of table with scrollable height
+	[selectable]: Selectable row : Boolean
+	[selectionMode]: Type of Selection for Table | single or multiple selection: String
+	[slanted]: Slanted headers : Boolean
+	[sticky]: Sticky headers : Boolean
+	
+	===================================================
+	NOTE: LIMITATION OF REUSABLE PRIMENG TABLE
+	===================================================
+	/----------------
+	IF YOU WILL USE SCROLL [scrollable]="true" 
+	DONT USE RESIZE, set [resizable]="false" (SCROLL DONT WORK WITH RESIZE COLUMN)
+	
+	/----------------
+	IF YOU WILL USE EDITABLE ROWS [editable]="true"
+	DONT USE SELECTABLE, set [selectable]="false" and other related flag 
+	[selectionMode]="'single'"
+	[datakey]="'vin'"
+	(YOU CANT SELECT A SINGLE ROW AND EDIT IT, YOU CAN ONLY SELECT 1 COLUMN PER ROW)
+
+	/----------------
+	FROZEN COLUMN IS NOT VERY COMPATIBLE WITH REUSABLE TABLE, 
+	FROZEN COLUMN MIGHT CRASH THE TABLE, CREATING CONFLICTS WITH OTHER FLAGS
+	
+	- ONLY USE THIS FLAGS WHILE USING FROZEN COLUMNS, RECHECK LIMITATION
+		[columns]="scrollableCols"
+		[datakey]="'vin'"
+		[editable]="false" 
+		[frozen]="true"
+		[frozenWidth]="200"
+		[frozenColumn]="frozenCols"
+		[headerHeight]="headerHeight"
+		[itemList]="cars2"
+		[paginator]="false"
+		[rows]="10"
+		[rowsPerPageOptions]="[10,15,20,25]" 
+		[scrollable]="false"
+		[selectable]="true"
+		[selectionMode]="'single'"
+		[slanted]="true"
+
+	/-----------------
+ -->
+
+
 <!-- TABLE 1 -->
 <div class="pt-5" [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row">
-		<div class="col-11 py-5 px-3 text-center">
-			<h5 class="text-muted m-0">Primeng Table with Slanted Header, Sort, Resize, Sticky, Single Selection</h5>
-
-			 <!-- 
-			 	===================================================
-			 	PLEASE READ - AVAILABLE INPUT FLAGS
-			 	===================================================
-
-				[columns]: List of column header : array of object
-
-				[datakey]: Data Key if [selectable]="true" : string
-
-				[editable]: Editable, Set if row item is editable: boolean 
-
-				[headerHeight]: Height of header: number
-
-				[itemList]: List of rows : array of object
-				
-				[paginator]: Set Paginator : boolean
-
-				[rows]: Rows Per Page if [paginator]="true": boolean
-
-				[rowsPerPageOptions]: Rows Per Page Option if [paginator]="true": Array of Number
-
-				[resizable]: Resizable columns headers: boolean
-
-				[scrollable]: Allow scrolling of table with scrollable height
-
-				[scrollableHeight]: Allow scrolling of table with scrollable height
-
-				[selectable]: Selectable row : boolean
-
-				[selectionMode]: Type of Selection for Table | single or multiple selection
-
-				[slanted]: Slanted headers : boolean
-
-				[sticky]: Sticky headers : boolean
-				
-				===================================================
-				NOTE: LIMITATION OF REUSABLE PRIMENG TABLE
-				===================================================
-				/----------------
-				IF YOU WILL USE SCROLL [scrollable]="true" 
-				DONT USE RESIZE, set [resizable]="false" (SCROLL DONT WORK WITH RESIZE COLUMN)
-				
-				/----------------
-				IF YOU WILL USE EDITABLE ROWS [editable]="true"
-				DONT USE SELECTABLE, set [selectable]="false" and other related flag 
-				[selectionMode]="'single'"
-				[datakey]="'vin'"
-				(YOU CANT SELECT A SINGLE ROW AND EDIT IT, YOU CAN ONLY SELECT 1 COLUMN PER ROW)
-
-				/----------------
-				FROZEN COLUMN IS NOT COMPATIBLE WITH REUSABLE TABLE, FROZEN COLUMN MIGHT CRASH 
-				THE TABLE, CREATING CONFLICTS WITH OTHER FLAGS
-			 -->
+		<div class="col-10 py-5 px-3 text-center">
+			<h5 class="text-muted m-0">
+			Primeng Table with Slanted Header, Sort, Resize, Sticky, Single Selection</h5>
 
 			<!-- REUSABLE PRIMENG TABLE, Just change the flags to modify -->
 			<app-primeng-table 
@@ -77,7 +87,7 @@
 				[sticky]="true"
 				>
 			</app-primeng-table>
-
+			
 			<!-- Sample Reusable table using other flags
 			<app-primeng-table 
 				*ngIf="cars2 && cars2.length > 0"
@@ -103,8 +113,9 @@
 <!-- TABLE 3 -->
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
-		<div class="col-11 mt-5 text-center">
-			<h5 class="text-muted m-0">Primeng Table with Slanted Header, Sort, Resize, Pagination, Editable</h5>
+		<div class="col-10 mt-5 text-center">
+			<h5 class="text-muted m-0">
+			Primeng Table with Slanted Header, Sort, Resize, Pagination, Editable</h5>
 
 			<app-primeng-table 
 				*ngIf="cars2 && cars2.length > 0"
@@ -127,62 +138,26 @@
 <!-- TABLE 5 -->
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
-		<div class="col-11 py-5 mt-5 text-center">
-			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Editable, Frozen Column</h5>
+		<div class="col-10 py-5 mt-5 text-center">
+			<h5 class="text-muted m-0">Primeng Table with Slanted Header, Sort, Editable, Frozen Column</h5>
 
-			<p-table
-				[ngClass]="{ 'rotate': slanted ? 'rotate' : '' }"
-				[value]="cars2" 
-				[columns]="scrollableCols" 
-				[scrollable]="true" 
-				[(selection)]="selectedCar"
-				[frozenColumns]="frozenCols" 
-				frozenWidth="200px"
-				scrollHeight="335px">
-				<ng-template pTemplate="colgroup" let-columns>
-					<colgroup>
-						<col *ngFor="let col of columns" style="width:200px">
-					</colgroup>
-				</ng-template>
-			    <ng-template pTemplate="header" let-columns>
-			        <tr>
-			            <th [id]="'slanted-header-' + col.field"
-			            *ngFor="let col of columns; let i = index;" 
-			            class="rotated-header"
-			            [ngStyle]="{height: headerHeight3 + 'px'}"
-			            [pSortableColumn]="col.field"
-			            (click)="removeHighlight()">
-			            	<div class="rotated-header-decoration" 
-			            	[id]="'slanted-div-' + col.field"></div>
-			                <div class="rotated-header-text" 
-			                [id]="'slanted-text-' + col.field"> 
-			                    <p-sortIcon [field]="col.field"></p-sortIcon>
-			                    {{col.header}}
-			                </div>
-			            </th>
-			        </tr>
-			    </ng-template>
-			    <ng-template pTemplate="body" 
-				    let-rowData 
-				    let-columns="columns">
-			        <tr>
-			            <td *ngFor="let col of columns"
-			            pEditableColumn  
-			            class="ui-resizable-column">
-			            	<!-- NORMAL INPUT -->
-			                <p-cellEditor>
-			                    <ng-template pTemplate="input">
-			                        <input pInputText type="text" 
-			                        [(ngModel)]="rowData[col.field]">
-			                    </ng-template>
-			                    <ng-template pTemplate="output">
-			                        {{rowData[col.field]}}
-			                    </ng-template>
-			                </p-cellEditor>
-			            </td>
-			        </tr>
-			    </ng-template>
-			</p-table>
+			<app-primeng-table 
+				*ngIf="cars2 && cars2.length > 0"
+				[columns]="scrollableCols"
+				[datakey]="'vin'"
+				[editable]="true" 
+				[headerHeight]="120"
+				[itemList]="cars2"
+				[paginator]="true"
+				[rows]="10"
+				[rowsPerPageOptions]="[10,15,20,25]" 
+				[scrollable]="true"
+				[slanted]="true"
+				[frozen]="true"
+				[frozenWidth]="200"
+				[frozenColumn]="frozenCols"
+				>
+			</app-primeng-table>
 		</div>
 	</div>
 </div>
