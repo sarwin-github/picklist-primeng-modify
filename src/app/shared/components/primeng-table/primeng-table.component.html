@@ -71,6 +71,14 @@
 			        </tr>
 			    </ng-template>
 
+			    <ng-template pTemplate="body" let-item *ngIf="!editable && !selectable">
+			        <tr>
+			            <td *ngFor="let col of columns" class="ui-resizable-column">
+			                {{item[col.field]}}
+			            </td>
+			        </tr>
+			    </ng-template>
+
 			    <ng-template pTemplate="body" let-item *ngIf="!editable && selectable">
 			        <tr [pSelectableRow]="item">
 			            <td *ngFor="let col of columns" class="ui-resizable-column">
