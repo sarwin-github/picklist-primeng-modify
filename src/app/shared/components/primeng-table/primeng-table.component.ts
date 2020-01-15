@@ -20,7 +20,12 @@ export class PrimengTableComponent implements OnInit {
 	@Input() selectionMode: any;
 	@Input() headerHeight: string;
 	@Input() resizable: boolean;
-	@Input() editable: boolean = false;
+	@Input() editable: boolean;
+	@Input() scrollable: boolean;
+	@Input() scrollableHeight: number;
+	@Input() paginator: boolean;
+	@Input() rows: number = 0;
+	@Input() rowsPerPageOptions: number[] = [];
 
 	public selected: any;
 	    constructor(private renderer: Renderer) { 

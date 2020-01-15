@@ -95,10 +95,10 @@
 		<div class="col-10 py-2 px-3 mt-5 text-center">
 			<h5 class="text-muted m-0 mb-5 ml-5">Primeng Table With Slanted Header, Col Group, Sort, Multiple Selection, Scroll</h5>
 			
-			<p-table class="scroll-table-body"
+			<p-table 
 				[ngClass]="{ 
 					'rotate': slanted ? 'rotate' : '', 
-					'scrollable': scrollable ? 'scroll-table-body': '' }"
+					'scroll-table-body': scrollable ? 'scroll-table-body': '' }"
 				[columns]="cols" 
 				[value]="cars2"
 				selectionMode="multiple" 

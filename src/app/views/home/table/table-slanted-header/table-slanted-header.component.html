@@ -5,31 +5,73 @@
 			<h5 class="text-muted m-0">Primeng Table with Slanted Header, Sort, Resize, Sticky, Single Selection</h5>
 
 			 <!-- 
-			 	[columns] : List of column header : array of object
+			 	===================================================
+			 	PLEASE READ - AVAILABLE INPUT FLAGS
+			 	===================================================
+
+				[columns]: List of column header : array of object
+
+				[datakey]: Data Key if [selectable]="true" : string
+
+				[editable]: Editable, Set if row item is editable: boolean 
+
+				[headerHeight]: Height of header: number
+
 				[itemList]: List of rows : array of object
-				[slanted]: Slanted headers : boolean
-				[sticky]: Sticky headers : boolean
+				
+				[paginator]: Set Paginator : boolean
+
+				[rows]: Rows Per Page if [paginator]="true": boolean
+
+				[rowsPerPageOptions]: Rows Per Page Option if [paginator]="true": Array of Number
+
 				[resizable]: Resizable columns headers: boolean
-				[selectable]: Selectable : boolean
-				[selectionMode]: Type of Selection for Table
-				[editable]: Editable : boolean 
-				[selectionType]: Selection Type (still has limitation) : string
-				[headerHeight]: Height : number
+
+				[scrollable]: Allow scrolling of table with scrollable height
+
+				[scrollableHeight]: Allow scrolling of table with scrollable height
+
+				[selectable]: Selectable row : boolean
+
+				[selectionMode]: Type of Selection for Table | single or multiple selection
+
+				[slanted]: Slanted headers : boolean
+
+				[sticky]: Sticky headers : boolean
+				
+				===================================================
+				NOTE: LIMITATION OF REUSABLE PRIMENG TABLE
+				===================================================
+				/----------------
+				IF YOU WILL USE SCROLL [scrollable]="true" 
+				DONT USE RESIZE, set [resizable]="false" (SCROLL DONT WORK WITH RESIZE COLUMN)
+				
+				/----------------
+				IF YOU WILL USE EDITABLE ROWS [editable]="true"
+				DONT USE SELECTABLE, set [selectable]="false" and other related flag 
+				[selectionMode]="'single'"
+				[datakey]="'vin'"
+				(YOU CANT SELECT A SINGLE ROW AND EDIT IT, YOU CAN ONLY SELECT 1 COLUMN PER ROW)
 			 -->
 
 			<!-- REUSABLE PRIMENG TABLE, Just change the flags to modify -->
 			<app-primeng-table 
 				*ngIf="cars && cars.length > 0"
 				[columns]="cols"
+				[datakey]="'vin'"
+				[editable]="false" 
+				[headerHeight]="headerHeight"
 				[itemList]="cars"
-				[slanted]="true"
-				[sticky]="true"
 				[resizable]="true"
+				[paginator]="false"
+				[rows]="10"
+				[rowsPerPageOptions]="[10,15,20,25]" 
+				[scrollable]="false"
 				[selectable]="true"
 				[selectionMode]="'single'"
-				[editable]="true"
-				[datakey]="'vin'"
-				[headerHeight]="headerHeight">
+				[slanted]="true"
+				[sticky]="true"
+				>
 			</app-primeng-table>
 		</div>
 	</div>
@@ -37,76 +79,25 @@
 
 
 <!-- TABLE 3 -->
-
 <div [@animate]="{value:'*', params:{ scale:'.9', delay:'400ms' }}">
 	<div class="row mx-0">
-		<div class="col-11 py-5 mt-5 text-center">
-			<h5 class="text-muted m-0 mb-5">Primeng Table with Slanted Header, Sort, Resize, Pagination, Editable</h5>
+		<div class="col-11 mt-5 text-center">
+			<h5 class="text-muted m-0">Primeng Table with Slanted Header, Sort, Resize, Pagination, Editable</h5>
 
-			<p-table
-				[ngClass]="{ 'rotate': slanted ? 'rotate' : '' }"
-				[value]="cars2" 
+			<app-primeng-table 
+				*ngIf="cars2 && cars2.length > 0"
+				[columns]="cols"
+				[datakey]="'vin'"
+				[editable]="true" 
+				[headerHeight]="120"
+				[itemList]="cars2"
+				[resizable]="true"
 				[paginator]="true"
 				[rows]="10"
 				[rowsPerPageOptions]="[10,15,20,25]" 
-				[resizableColumns]="true">
-			    <ng-template pTemplate="header">
-			        <tr>
-			            <th *ngFor="let col of cols" 
-			            class="rotated-header" 
-			            [ngStyle]="{height: headerHeight2 + 'px'}"
-			            [pSortableColumn]="col.field"
-			            (click)="removeHighlight()" 
-			            pResizableColumn>
-			            	<div class="rotated-header-decoration"></div>
-			                <div class="rotated-header-text"
-			                	pTooltip="{{col.header}}" 
-			                	tooltipPosition="top"
-			                	[ngStyle]="{width: headerHeight2 + 20 + 'px'}"> 
-			                    <p-sortIcon [field]="col.field"></p-sortIcon>
-			                    {{col.header}}
-			                </div>
-			            </th>
-			        </tr>
-			    </ng-template>
-			    <ng-template pTemplate="body" let-car>
-			        <tr>
-			            <td *ngFor="let col of cols"
-			            pEditableColumn  
-			            class="ui-resizable-column">
-			            	<!-- NORMAL INPUT -->
-			                <p-cellEditor *ngIf="col.field !== 'brand'">
-			                    <ng-template pTemplate="input">
-			                        <input pInputText type="text" 
-			                        [(ngModel)]="car[col.field]">
-			                    </ng-template>
-			                    <ng-template pTemplate="output">
-			                        {{car[col.field]}}
-			                    </ng-template>
-			                </p-cellEditor>
-
-			                <!-- DROPDOWN INPUT -->
-			                <p-cellEditor *ngIf="col.field === 'brand'">
-			                    <ng-template pTemplate="input">
-			                        
-			                        <div class="form-group custom-dropdown">
-			                            <select class="form-control" 
-			                            	style="cursor: pointer !important;"
-			                            	[(ngModel)]="car[col.field]">
-			                            	<option *ngFor="let brands of brands">
-			                            		<span>{{brands.label}}</span>
-			                            	</option>
-			                            </select>
-			                        </div>
-			                    </ng-template>
-			                    <ng-template pTemplate="output">
-			                        {{car[col.field]}}
-			                    </ng-template>
-			                </p-cellEditor>
-			            </td>
-			        </tr>
-			    </ng-template>
-			</p-table>
+				[slanted]="true"
+				>
+			</app-primeng-table>
 		</div>
 	</div>
 </div>
