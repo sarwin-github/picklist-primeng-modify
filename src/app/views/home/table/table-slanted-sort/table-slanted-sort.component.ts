@@ -19,6 +19,9 @@ export class TableSlantedSortComponent implements OnInit {
     public selectedCar: Car[];
     public selectedCar2: Car[];
 
+    public headerHeight: number = 120;
+    public headerHeight2: number = 120;
+
     public cols: any[];
     public colGroupItem: any[];
     

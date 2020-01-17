@@ -18,7 +18,7 @@
 	                        	colspan="1"
 	                        	[pSortableColumn]="'vin'"
 	                        	(click)="removeHighlight()"
-	                        	[ngStyle]="{height: 120 + 'px'}"
+	                        	[ngStyle]="{height: headerHeight + 'px'}"
 								class="rotated-header p-table-sticky-column-group" pResizableColumn>
 			                	<div class="rotated-header-decoration"></div>
 			                    <div class="rotated-header-text"> 
@@ -27,7 +27,11 @@
 			                    </div>
 	                        </th>
 	                        <th colspan="3" class="rotated-header-column-group p-table-sticky-column-group-main">
-			                    <div class="p-table-sticky-column-group-position">
+			                    <div 
+			                    [ngStyle]="{
+			                    position: 'relative',
+    							right: -20 - headerHeight + 'px',
+    							top: '0'}">
 			                    	<span>   
 			                    	    Sales
 			                    	</span>
@@ -38,6 +42,7 @@
 	                        <th *ngFor="let col of colGroupItem" 
 	                    		[pSortableColumn]="col.field"
 	                        	(click)="removeHighlight()"
+	                        	[ngStyle]="{height: headerHeight + 'px'}"
 	                        	class="rotated-header p-table-sticky-column-group-item" width="70px">
 			                    <div class="rotated-header-decoration"></div>
 			                    <div class="rotated-header-text"> 
@@ -108,7 +113,7 @@
 			        <ng-template pTemplate="header" let-columns>
 			            <tr>
 	                        <th rowspan="2" 
-	                        	[ngStyle]="{height: 120 + 'px'}"
+	                        	[ngStyle]="{height: headerHeight2 + 'px'}"
 	                        	[pSortableColumn]="'vin'"
 	                        	(click)="removeHighlight()"
 	                        	class="rotated-header" >
@@ -119,7 +124,11 @@
 			                    </div>
 	                        </th>
 	                        <th colspan="3" class="rotated-header-column-group">
-			                    <div>
+			                    <div 
+			                    [ngStyle]="{
+			                    position: 'relative',
+    							right: -40 + 'px',
+    							top: '0'}">
 			                    	<span>   
 			                    	    Sales
 			                    	</span>
@@ -128,6 +137,7 @@
 	                    </tr>
 	                    <tr>
 	                    	<th *ngFor="let col of colGroupItem" 
+	                    		[ngStyle]="{height: headerHeight2 + 'px'}"
 	                    		[pSortableColumn]="col.field"
 	                        	(click)="removeHighlight()"
 	                        	class="rotated-header" width="70px">
