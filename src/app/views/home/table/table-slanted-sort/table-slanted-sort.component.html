@@ -18,6 +18,7 @@
 	                        	colspan="1"
 	                        	[pSortableColumn]="'vin'"
 	                        	(click)="removeHighlight()"
+	                        	[ngStyle]="{height: 120 + 'px'}"
 								class="rotated-header p-table-sticky-column-group" pResizableColumn>
 			                	<div class="rotated-header-decoration"></div>
 			                    <div class="rotated-header-text"> 
@@ -107,6 +108,7 @@
 			        <ng-template pTemplate="header" let-columns>
 			            <tr>
 	                        <th rowspan="2" 
+	                        	[ngStyle]="{height: 120 + 'px'}"
 	                        	[pSortableColumn]="'vin'"
 	                        	(click)="removeHighlight()"
 	                        	class="rotated-header" >
